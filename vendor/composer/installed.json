@@ -1098,59 +1098,6 @@
         "description": "implementation of xdg base directory specification for php"
     },
     {
-        "name": "nikic/php-parser",
-        "version": "v2.1.0",
-        "version_normalized": "2.1.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/nikic/PHP-Parser.git",
-            "reference": "47b254ea51f1d6d5dc04b9b299e88346bf2369e3"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://packagist.phpcomposer.com/files/nikic/PHP-Parser/47b254ea51f1d6d5dc04b9b299e88346bf2369e3.zip",
-            "reference": "47b254ea51f1d6d5dc04b9b299e88346bf2369e3",
-            "shasum": ""
-        },
-        "require": {
-            "ext-tokenizer": "*",
-            "php": ">=5.4"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "~4.0"
-        },
-        "time": "2016-04-19 13:41:41",
-        "bin": [
-            "bin/php-parse"
-        ],
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.1-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "PhpParser\\": "lib/PhpParser"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "authors": [
-            {
-                "name": "Nikita Popov"
-            }
-        ],
-        "description": "A PHP parser written in PHP",
-        "keywords": [
-            "parser",
-            "php"
-        ]
-    },
-    {
         "name": "psy/psysh",
         "version": "v0.7.2",
         "version_normalized": "0.7.2.0",
@@ -3298,50 +3245,6 @@
         ]
     },
     {
-        "name": "myclabs/deep-copy",
-        "version": "1.5.2",
-        "version_normalized": "1.5.2.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/myclabs/DeepCopy.git",
-            "reference": "da8529775f14f4fdae33f916eb0cf65f6afbddbc"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://packagist.phpcomposer.com/files/myclabs/DeepCopy/da8529775f14f4fdae33f916eb0cf65f6afbddbc.zip",
-            "reference": "da8529775f14f4fdae33f916eb0cf65f6afbddbc",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.4.0"
-        },
-        "require-dev": {
-            "doctrine/collections": "1.*",
-            "phpunit/phpunit": "~4.1"
-        },
-        "time": "2016-09-06 16:07:05",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "DeepCopy\\": "src/DeepCopy/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "description": "Create deep copies (clones) of your objects",
-        "homepage": "https://github.com/myclabs/DeepCopy",
-        "keywords": [
-            "clone",
-            "copy",
-            "duplicate",
-            "object",
-            "object graph"
-        ]
-    },
-    {
         "name": "phpunit/phpunit",
         "version": "5.5.4",
         "version_normalized": "5.5.4.0",
@@ -3535,62 +3438,6 @@
         "homepage": "https://symfony.com"
     },
     {
-        "name": "acacha/user",
-        "version": "0.1.2",
-        "version_normalized": "0.1.2.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/acacha/user.git",
-            "reference": "7e538b3580d7f2168442e1c7a2274a2797b8da65"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://packagist.phpcomposer.com/files/acacha/user/7e538b3580d7f2168442e1c7a2274a2797b8da65.zip",
-            "reference": "7e538b3580d7f2168442e1c7a2274a2797b8da65",
-            "shasum": ""
-        },
-        "require": {
-            "laravel/framework": "^5.3",
-            "php": "~5.6|~7.0"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "~4.0||~5.0",
-            "scrutinizer/ocular": "~1.1",
-            "squizlabs/php_codesniffer": "~2.3"
-        },
-        "time": "2016-09-12 16:59:30",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.0-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Acacha\\User\\": "src"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Sergi Tur Badenas",
-                "email": "sergiturbadenas@gmail.com",
-                "homepage": "https://github.com/acacha",
-                "role": "Developer"
-            }
-        ],
-        "description": "A boosted User for Laravel",
-        "homepage": "https://github.com/acacha/user",
-        "keywords": [
-            "acacha",
-            "user"
-        ]
-    },
-    {
         "name": "creativeorange/gravatar",
         "version": "1.0.9",
         "version_normalized": "1.0.9.0",
@@ -3634,62 +3481,6 @@
             "avatar",
             "gravatar",
             "laravel"
-        ]
-    },
-    {
-        "name": "acacha/admin-lte-template-laravel",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/acacha/adminlte-laravel.git",
-            "reference": "93f846cf4d43bf25ce89e039cd15e7e481de90b3"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://packagist.phpcomposer.com/files/acacha/adminlte-laravel/93f846cf4d43bf25ce89e039cd15e7e481de90b3.zip",
-            "reference": "93f846cf4d43bf25ce89e039cd15e7e481de90b3",
-            "shasum": ""
-        },
-        "require": {
-            "acacha/user": "~0.1",
-            "creativeorange/gravatar": "~1.0",
-            "illuminate/console": "~5.0",
-            "illuminate/support": "~5.0",
-            "php": ">=5.4.0"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "~4.0"
-        },
-        "time": "2016-09-12 17:01:22",
-        "type": "package",
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "Acacha\\AdminLTETemplateLaravel\\": "src"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Sergi Tur Badenas",
-                "email": "sergiturbadenas@gmail.com",
-                "homepage": "http://acacha.org"
-            }
-        ],
-        "description": "AdminLTE template applied to Laravel Scaffolding",
-        "keywords": [
-            "AdminLTE",
-            "admin",
-            "admin-lte",
-            "administrator",
-            "bootstrap",
-            "laravel",
-            "template",
-            "theme"
         ]
     },
     {
@@ -3797,6 +3588,272 @@
         "homepage": "http://laravel-breadcrumbs.davejamesmiller.com",
         "keywords": [
             "laravel"
+        ]
+    },
+    {
+        "name": "myclabs/deep-copy",
+        "version": "1.5.4",
+        "version_normalized": "1.5.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/myclabs/DeepCopy.git",
+            "reference": "ea74994a3dc7f8d2f65a06009348f2d63c81e61f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://packagist.phpcomposer.com/files/myclabs/DeepCopy/ea74994a3dc7f8d2f65a06009348f2d63c81e61f.zip",
+            "reference": "ea74994a3dc7f8d2f65a06009348f2d63c81e61f",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0"
+        },
+        "require-dev": {
+            "doctrine/collections": "1.*",
+            "phpunit/phpunit": "~4.1"
+        },
+        "time": "2016-09-16 13:37:59",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "DeepCopy\\": "src/DeepCopy/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "description": "Create deep copies (clones) of your objects",
+        "homepage": "https://github.com/myclabs/DeepCopy",
+        "keywords": [
+            "clone",
+            "copy",
+            "duplicate",
+            "object",
+            "object graph"
+        ]
+    },
+    {
+        "name": "nikic/php-parser",
+        "version": "v2.1.1",
+        "version_normalized": "2.1.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/nikic/PHP-Parser.git",
+            "reference": "4dd659edadffdc2143e4753df655d866dbfeedf0"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://packagist.phpcomposer.com/files/nikic/PHP-Parser/4dd659edadffdc2143e4753df655d866dbfeedf0.zip",
+            "reference": "4dd659edadffdc2143e4753df655d866dbfeedf0",
+            "shasum": ""
+        },
+        "require": {
+            "ext-tokenizer": "*",
+            "php": ">=5.4"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.0"
+        },
+        "time": "2016-09-16 12:04:44",
+        "bin": [
+            "bin/php-parse"
+        ],
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.1-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "PhpParser\\": "lib/PhpParser"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Nikita Popov"
+            }
+        ],
+        "description": "A PHP parser written in PHP",
+        "keywords": [
+            "parser",
+            "php"
+        ]
+    },
+    {
+        "name": "acacha/user",
+        "version": "0.1.3",
+        "version_normalized": "0.1.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/acacha/user.git",
+            "reference": "198a3f9b5a61a17438cd39947550d3591cfa1ec2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://packagist.phpcomposer.com/files/acacha/user/198a3f9b5a61a17438cd39947550d3591cfa1ec2.zip",
+            "reference": "198a3f9b5a61a17438cd39947550d3591cfa1ec2",
+            "shasum": ""
+        },
+        "require": {
+            "laravel/framework": "^5.3",
+            "php": "~5.6|~7.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.0||~5.0",
+            "scrutinizer/ocular": "~1.1",
+            "squizlabs/php_codesniffer": "~2.3"
+        },
+        "time": "2016-09-13 11:59:21",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Acacha\\User\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Sergi Tur Badenas",
+                "email": "sergiturbadenas@gmail.com",
+                "homepage": "https://github.com/acacha",
+                "role": "Developer"
+            }
+        ],
+        "description": "A boosted User for Laravel",
+        "homepage": "https://github.com/acacha/user",
+        "keywords": [
+            "acacha",
+            "user"
+        ]
+    },
+    {
+        "name": "laravelcollective/html",
+        "version": "v5.3.0",
+        "version_normalized": "5.3.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/LaravelCollective/html.git",
+            "reference": "961ce141c16c6b085128f209496c26efd3e681ca"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://packagist.phpcomposer.com/files/LaravelCollective/html/961ce141c16c6b085128f209496c26efd3e681ca.zip",
+            "reference": "961ce141c16c6b085128f209496c26efd3e681ca",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/http": "5.3.*",
+            "illuminate/routing": "5.3.*",
+            "illuminate/session": "5.3.*",
+            "illuminate/support": "5.3.*",
+            "illuminate/view": "5.3.*",
+            "php": ">=5.6.4"
+        },
+        "require-dev": {
+            "illuminate/database": "5.3.*",
+            "mockery/mockery": "~0.9.4",
+            "phpunit/phpunit": "~5.4"
+        },
+        "time": "2016-08-27 23:52:43",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Collective\\Html\\": "src/"
+            },
+            "files": [
+                "src/helpers.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Taylor Otwell",
+                "email": "taylorotwell@gmail.com"
+            },
+            {
+                "name": "Adam Engebretson",
+                "email": "adam@laravelcollective.com"
+            }
+        ],
+        "description": "HTML and Form Builders for the Laravel Framework",
+        "homepage": "http://laravelcollective.com"
+    },
+    {
+        "name": "acacha/admin-lte-template-laravel",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/acacha/adminlte-laravel.git",
+            "reference": "255e33e1e524c400b5aff52343c556ef3e9b17a5"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://packagist.phpcomposer.com/files/acacha/adminlte-laravel/255e33e1e524c400b5aff52343c556ef3e9b17a5.zip",
+            "reference": "255e33e1e524c400b5aff52343c556ef3e9b17a5",
+            "shasum": ""
+        },
+        "require": {
+            "acacha/user": "~0.1",
+            "creativeorange/gravatar": "~1.0",
+            "illuminate/console": "~5.0",
+            "illuminate/support": "~5.0",
+            "league/flysystem": "^1.0",
+            "php": ">=5.4.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.0"
+        },
+        "time": "2016-09-17 15:01:55",
+        "type": "package",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Acacha\\AdminLTETemplateLaravel\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Sergi Tur Badenas",
+                "email": "sergiturbadenas@gmail.com",
+                "homepage": "http://acacha.org"
+            }
+        ],
+        "description": "AdminLTE template applied to Laravel Scaffolding",
+        "keywords": [
+            "AdminLTE",
+            "admin",
+            "admin-lte",
+            "administrator",
+            "bootstrap",
+            "laravel",
+            "template",
+            "theme"
         ]
     }
 ]

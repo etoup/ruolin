@@ -15,5 +15,5 @@ Breadcrumbs::register('backend', function($breadcrumbs)
 Breadcrumbs::register('backend.users', function($breadcrumbs)
 {
     $breadcrumbs->parent('backend');
-    $breadcrumbs->push('会员管理', route('backend.users'));
+    $breadcrumbs->push('会员列表', route('backend.users'));
 });

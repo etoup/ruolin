@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "181d873a8b62a58202ea1e128242c180",
-    "content-hash": "7750ec579ed06b243e1d92c0ec9313d6",
+    "hash": "7b3b0bc3c1eabb915608dc7a2d5e84e0",
+    "content-hash": "78acfad77ef06d4d022bb7e38ebe0d65",
     "packages": [
         {
             "name": "acacha/admin-lte-template-laravel",
@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/acacha/adminlte-laravel.git",
-                "reference": "93f846cf4d43bf25ce89e039cd15e7e481de90b3"
+                "reference": "255e33e1e524c400b5aff52343c556ef3e9b17a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/acacha/adminlte-laravel/93f846cf4d43bf25ce89e039cd15e7e481de90b3.zip",
-                "reference": "93f846cf4d43bf25ce89e039cd15e7e481de90b3",
+                "url": "https://packagist.phpcomposer.com/files/acacha/adminlte-laravel/255e33e1e524c400b5aff52343c556ef3e9b17a5.zip",
+                "reference": "255e33e1e524c400b5aff52343c556ef3e9b17a5",
                 "shasum": ""
             },
             "require": {
@@ -26,6 +26,7 @@
                 "creativeorange/gravatar": "~1.0",
                 "illuminate/console": "~5.0",
                 "illuminate/support": "~5.0",
+                "league/flysystem": "^1.0",
                 "php": ">=5.4.0"
             },
             "require-dev": {
@@ -59,20 +60,20 @@
                 "template",
                 "theme"
             ],
-            "time": "2016-09-12 17:01:22"
+            "time": "2016-09-17 15:01:55"
         },
         {
             "name": "acacha/user",
-            "version": "0.1.2",
+            "version": "0.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/acacha/user.git",
-                "reference": "7e538b3580d7f2168442e1c7a2274a2797b8da65"
+                "reference": "198a3f9b5a61a17438cd39947550d3591cfa1ec2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/acacha/user/7e538b3580d7f2168442e1c7a2274a2797b8da65.zip",
-                "reference": "7e538b3580d7f2168442e1c7a2274a2797b8da65",
+                "url": "https://packagist.phpcomposer.com/files/acacha/user/198a3f9b5a61a17438cd39947550d3591cfa1ec2.zip",
+                "reference": "198a3f9b5a61a17438cd39947550d3591cfa1ec2",
                 "shasum": ""
             },
             "require": {
@@ -113,7 +114,7 @@
                 "acacha",
                 "user"
             ],
-            "time": "2016-09-12 16:59:30"
+            "time": "2016-09-13 11:59:21"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -689,6 +690,60 @@
             "time": "2016-09-12 14:08:29"
         },
         {
+            "name": "laravelcollective/html",
+            "version": "v5.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LaravelCollective/html.git",
+                "reference": "961ce141c16c6b085128f209496c26efd3e681ca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packagist.phpcomposer.com/files/LaravelCollective/html/961ce141c16c6b085128f209496c26efd3e681ca.zip",
+                "reference": "961ce141c16c6b085128f209496c26efd3e681ca",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/http": "5.3.*",
+                "illuminate/routing": "5.3.*",
+                "illuminate/session": "5.3.*",
+                "illuminate/support": "5.3.*",
+                "illuminate/view": "5.3.*",
+                "php": ">=5.6.4"
+            },
+            "require-dev": {
+                "illuminate/database": "5.3.*",
+                "mockery/mockery": "~0.9.4",
+                "phpunit/phpunit": "~5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Collective\\Html\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                },
+                {
+                    "name": "Adam Engebretson",
+                    "email": "adam@laravelcollective.com"
+                }
+            ],
+            "description": "HTML and Form Builders for the Laravel Framework",
+            "homepage": "http://laravelcollective.com",
+            "time": "2016-08-27 23:52:43"
+        },
+        {
             "name": "league/flysystem",
             "version": "1.0.27",
             "source": {
@@ -942,16 +997,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v2.1.0",
+            "version": "v2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "47b254ea51f1d6d5dc04b9b299e88346bf2369e3"
+                "reference": "4dd659edadffdc2143e4753df655d866dbfeedf0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/nikic/PHP-Parser/47b254ea51f1d6d5dc04b9b299e88346bf2369e3.zip",
-                "reference": "47b254ea51f1d6d5dc04b9b299e88346bf2369e3",
+                "url": "https://packagist.phpcomposer.com/files/nikic/PHP-Parser/4dd659edadffdc2143e4753df655d866dbfeedf0.zip",
+                "reference": "4dd659edadffdc2143e4753df655d866dbfeedf0",
                 "shasum": ""
             },
             "require": {
@@ -989,7 +1044,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2016-04-19 13:41:41"
+            "time": "2016-09-16 12:04:44"
         },
         {
             "name": "paragonie/random_compat",
@@ -2327,16 +2382,16 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.5.2",
+            "version": "1.5.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "da8529775f14f4fdae33f916eb0cf65f6afbddbc"
+                "reference": "ea74994a3dc7f8d2f65a06009348f2d63c81e61f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/myclabs/DeepCopy/da8529775f14f4fdae33f916eb0cf65f6afbddbc.zip",
-                "reference": "da8529775f14f4fdae33f916eb0cf65f6afbddbc",
+                "url": "https://packagist.phpcomposer.com/files/myclabs/DeepCopy/ea74994a3dc7f8d2f65a06009348f2d63c81e61f.zip",
+                "reference": "ea74994a3dc7f8d2f65a06009348f2d63c81e61f",
                 "shasum": ""
             },
             "require": {
@@ -2365,7 +2420,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2016-09-06 16:07:05"
+            "time": "2016-09-16 13:37:59"
         },
         {
             "name": "phpdocumentor/reflection-common",

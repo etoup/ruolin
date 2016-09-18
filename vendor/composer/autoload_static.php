@@ -17,6 +17,7 @@ class ComposerStaticInitc280e4c9a09ec592aa368a02abad4483
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
         'c9b7496aa2e287ba00ff44d2d2a861b1' => __DIR__ . '/..' . '/hieu-le/active/src/helpers.php',
+        'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -92,6 +93,7 @@ class ComposerStaticInitc280e4c9a09ec592aa368a02abad4483
         'C' => 
         array (
             'Creativeorange\\Gravatar\\' => 24,
+            'Collective\\Html\\' => 16,
             'ClassPreloader\\' => 15,
             'Carbon\\' => 7,
         ),
@@ -242,6 +244,10 @@ class ComposerStaticInitc280e4c9a09ec592aa368a02abad4483
         array (
             0 => __DIR__ . '/..' . '/creativeorange/gravatar/src',
         ),
+        'Collective\\Html\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravelcollective/html/src',
+        ),
         'ClassPreloader\\' => 
         array (
             0 => __DIR__ . '/..' . '/classpreloader/classpreloader/src',
@@ -312,11 +318,12 @@ class ComposerStaticInitc280e4c9a09ec592aa368a02abad4483
 
     public static $classMap = array (
         'Acacha\\AdminLTETemplateLaravel\\AdminLTE' => __DIR__ . '/..' . '/acacha/admin-lte-template-laravel/src/AdminLTE.php',
-        'Acacha\\AdminLTETemplateLaravel\\Console\\AdminLTE' => __DIR__ . '/..' . '/acacha/admin-lte-template-laravel/src/Console/AdminLTE.php',
+        'Acacha\\AdminLTETemplateLaravel\\Console\\PublishAdminLTE' => __DIR__ . '/..' . '/acacha/admin-lte-template-laravel/src/Console/PublishAdminLTE.php',
         'Acacha\\AdminLTETemplateLaravel\\Facades\\AdminLTE' => __DIR__ . '/..' . '/acacha/admin-lte-template-laravel/src/Facades/AdminLTE.php',
         'Acacha\\AdminLTETemplateLaravel\\Providers\\AdminLTETemplateServiceProvider' => __DIR__ . '/..' . '/acacha/admin-lte-template-laravel/src/Providers/AdminLTETemplateServiceProvider.php',
         'Acacha\\AdminLTETemplateLaravel\\app\\Exceptions\\Handler' => __DIR__ . '/..' . '/acacha/admin-lte-template-laravel/src/Exceptions/Handler.php',
         'Acacha\\User\\GuestUser' => __DIR__ . '/..' . '/acacha/user/src/GuestUser.php',
+        'Acacha\\User\\Http\\Middleware\\GuestUser' => __DIR__ . '/..' . '/acacha/user/src/Http/Middleware/GuestUser.php',
         'Acacha\\User\\Providers\\GuestUserProvider' => __DIR__ . '/..' . '/acacha/user/src/Providers/GuestUserProvider.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
@@ -355,6 +362,13 @@ class ComposerStaticInitc280e4c9a09ec592aa368a02abad4483
         'ClassPreloader\\Parser\\FileVisitor' => __DIR__ . '/..' . '/classpreloader/classpreloader/src/Parser/FileVisitor.php',
         'ClassPreloader\\Parser\\NodeTraverser' => __DIR__ . '/..' . '/classpreloader/classpreloader/src/Parser/NodeTraverser.php',
         'ClassPreloader\\Parser\\StrictTypesVisitor' => __DIR__ . '/..' . '/classpreloader/classpreloader/src/Parser/StrictTypesVisitor.php',
+        'Collective\\Html\\Componentable' => __DIR__ . '/..' . '/laravelcollective/html/src/Componentable.php',
+        'Collective\\Html\\Eloquent\\FormAccessible' => __DIR__ . '/..' . '/laravelcollective/html/src/Eloquent/FormAccessible.php',
+        'Collective\\Html\\FormBuilder' => __DIR__ . '/..' . '/laravelcollective/html/src/FormBuilder.php',
+        'Collective\\Html\\FormFacade' => __DIR__ . '/..' . '/laravelcollective/html/src/FormFacade.php',
+        'Collective\\Html\\HtmlBuilder' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlBuilder.php',
+        'Collective\\Html\\HtmlFacade' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlFacade.php',
+        'Collective\\Html\\HtmlServiceProvider' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlServiceProvider.php',
         'CreateArticlesCategoriesTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_17_165857_create_articles_categories_table.php',
         'CreateArticlesTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_17_165857_create_articles_table.php',
         'CreateCollectionsTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_17_165844_create_collections_table.php',
