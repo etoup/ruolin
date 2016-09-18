@@ -186,6 +186,16 @@ return [
         Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
         #llum_providers
 
+        /**
+         * sidebar active
+         */
+        HieuLe\Active\ActiveServiceProvider::class,
+
+        /**
+         * Breadcrumbs
+         */
+        DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
+
     ],
 
     /*
@@ -240,6 +250,16 @@ return [
          */
         'AdminLTE' => Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::class,
         #llum_aliases
+
+        /**
+         * sidebar active
+         */
+        'Active' => HieuLe\Active\Facades\Active::class,
+
+        /**
+         * Breadcrumbs
+         */
+        'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
 
     ],
 

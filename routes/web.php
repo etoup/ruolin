@@ -17,6 +17,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::group(['namespace'=>'Backend','prefix'=>'backend','middleware'=>'auth'],function(){
-    Route::get('/', 'BackendController@index');
+    Route::get('/', 'BackendController@index')->name('backend');
+    Route::get('/users', 'UsersController@index')->name('backend.users');
+    Route::get('/users/review', 'UsersController@index')->name('backend.users.review');
 });
 

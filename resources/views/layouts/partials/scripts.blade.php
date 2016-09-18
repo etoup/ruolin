@@ -6,6 +6,8 @@
 <script src="{{ asset('/js/bootstrap.min.js') }}" type="text/javascript"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('/js/adminlte-app.min.js') }}" type="text/javascript"></script>
+<!-- jquery.slimscroll -->
+<script src="{{ asset('/js/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
 <!-- pace -->
 <script src="{{ asset('/js/pace.min.js') }}" type="text/javascript"></script>
 
