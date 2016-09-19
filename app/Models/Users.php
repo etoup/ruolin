@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use App\Models\Traits\Attribute\UsersAttribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Users extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, UsersAttribute;
 
     /**
      * @var string

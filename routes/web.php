@@ -20,5 +20,7 @@ Route::group(['namespace'=>'Backend','prefix'=>'backend','middleware'=>'auth'],f
     Route::get('/', 'BackendController@index')->name('backend');
     Route::get('/users', 'UsersController@index')->name('backend.users');
     Route::get('/users/review', 'UsersController@index')->name('backend.users.review');
+    Route::get('/users/edit/{id}', 'UsersController@edit')->name('backend.users.edit');
+    Route::post('/users/store', 'UsersController@store')->name('backend.users.store');
 });
 

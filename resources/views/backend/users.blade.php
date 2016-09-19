@@ -83,48 +83,37 @@
 				<table class="table table-striped table-bordered table-hover">
 					<thead>
 						<tr>
-							<th>标题</th>
-							<th>名称</th>
-							<th>标题</th>
-							<th>名称</th>
-							<th>标题</th>
-							<th>名称</th>
+							<th>头像</th>
+							<th>昵称</th>
+							<th>邮箱</th>
+							<th>手机</th>
+							<th>公司</th>
+							<th>职位</th>
+							<th>操作</th>
 						</tr>
 					</thead>
 					<tbody>
-						@if ($users->count())
+						@if ($data->count())
+							@foreach($data as $v)
 							<tr>
-								<td>内容</td>
-								<td>内容</td>
-								<td>内容</td>
-								<td>内容</td>
-								<td>内容</td>
-								<td>内容</td>
+								<td>
+									<img src="{{ $v->headimgurl }}" height="40" class="img-circle" alt="User Image" />
+								</td>
+								<td>{{ $v->nickname }}</td>
+								<td>{{ $v->email }}</td>
+								<td>{{ $v->mobile }}</td>
+								<td>{{ $v->company }}</td>
+								<td>{{ $v->position }}</td>
+								<td>{!! $v->action_buttons !!}</td>
 							</tr>
-							<tr>
-								<td>内容</td>
-								<td>内容</td>
-								<td>内容</td>
-								<td>内容</td>
-								<td>内容</td>
-								<td>内容</td>
-							</tr>
-							<tr>
-								<td>内容</td>
-								<td>内容</td>
-								<td>内容</td>
-								<td>内容</td>
-								<td>内容</td>
-								<td>内容</td>
-							</tr>
-							<tr>
-								<td>内容</td>
-								<td>内容</td>
-								<td>内容</td>
-								<td>内容</td>
-								<td>内容</td>
-								<td>内容</td>
-							</tr>
+							<div class="modal fade" id="edit-{{ $v->id }}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+								<div class="modal-dialog">
+									<div class="modal-content">
+
+									</div>
+								</div>
+							</div>
+							@endforeach
 							@else
 							<td colspan="10">还没有相关数据！</td>
 					    @endif
@@ -132,5 +121,12 @@
 				</table>
 			</div>
 		</div>
+		<div class="box-footer">
+			{{ trans('pagination.total', ['total' => $data->total()]) }}
+			<div class="pull-right">
+				{{ $data->render() }}
+			</div>
+		</div>
 	</div>
+
 @endsection
