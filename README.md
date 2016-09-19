@@ -7,4 +7,4 @@
 
 4.php artisan migrate
 
-5.php artisan db:seed
+5.php artisan db:seed.
