@@ -30,4 +30,5 @@ class UsersController extends Controller
     {
         return view('backend.users')->withUsers($this->users->getUsersPaginated(10,80));
     }
+
 }
