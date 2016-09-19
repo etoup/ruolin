@@ -15,5 +15,5 @@ return [
 
     'previous' => '&laquo; Previous',
     'next'     => 'Next &raquo;',
-
+    'total' => '共计 :total 条记录',
 ];

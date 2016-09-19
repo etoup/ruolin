@@ -1,5 +1,6 @@
+<div class="box-tools pull-right">
 @if ($paginator->hasPages())
-    <ul class="pagination">
+    <ul class="pagination pagination-sm inline">
         <!-- Previous Page Link -->
         @if ($paginator->onFirstPage())
             <li class="disabled"><span>&laquo;</span></li>
@@ -34,3 +35,5 @@
         @endif
     </ul>
 @endif
+</div>
+

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Repositories\Member\UsersRepositoryContract;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class UsersController
@@ -28,7 +29,10 @@ class UsersController extends Controller
      */
     public function index()
     {
-        return view('backend.users')->withUsers($this->users->getUsersPaginated(10,80));
+        return view('backend.users')->withUsers($this->users->getUsersPaginated(10,10));
     }
 
+    public function edit(){
+
+    }
 }

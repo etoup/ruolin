@@ -83,48 +83,30 @@
 				<table class="table table-striped table-bordered table-hover">
 					<thead>
 						<tr>
-							<th>标题</th>
-							<th>名称</th>
-							<th>标题</th>
-							<th>名称</th>
-							<th>标题</th>
-							<th>名称</th>
+							<th>头像</th>
+							<th>昵称</th>
+							<th>邮箱</th>
+							<th>手机</th>
+							<th>公司</th>
+							<th>职位</th>
+							<th>操作</th>
 						</tr>
 					</thead>
 					<tbody>
 						@if ($users->count())
+							@foreach($users as $user)
 							<tr>
-								<td>内容</td>
-								<td>内容</td>
-								<td>内容</td>
-								<td>内容</td>
-								<td>内容</td>
-								<td>内容</td>
+								<td>
+									<img src="{{ $user->headimgurl }}" height="50" class="img-circle" alt="User Image" />
+								</td>
+								<td>{{ $user->nickname }}</td>
+								<td>{{ $user->email }}</td>
+								<td>{{ $user->mobile }}</td>
+								<td>{{ $user->company }}</td>
+								<td>{{ $user->position }}</td>
+								<td>{!! $user->action_buttons !!}</td>
 							</tr>
-							<tr>
-								<td>内容</td>
-								<td>内容</td>
-								<td>内容</td>
-								<td>内容</td>
-								<td>内容</td>
-								<td>内容</td>
-							</tr>
-							<tr>
-								<td>内容</td>
-								<td>内容</td>
-								<td>内容</td>
-								<td>内容</td>
-								<td>内容</td>
-								<td>内容</td>
-							</tr>
-							<tr>
-								<td>内容</td>
-								<td>内容</td>
-								<td>内容</td>
-								<td>内容</td>
-								<td>内容</td>
-								<td>内容</td>
-							</tr>
+							@endforeach
 							@else
 							<td colspan="10">还没有相关数据！</td>
 					    @endif
@@ -132,5 +114,12 @@
 				</table>
 			</div>
 		</div>
+		<div class="box-footer">
+			{{ trans('pagination.total', ['total' => $users->total()]) }}
+			<div class="pull-right">
+				{{ $users->render() }}
+			</div>
+		</div>
 	</div>
+
 @endsection
