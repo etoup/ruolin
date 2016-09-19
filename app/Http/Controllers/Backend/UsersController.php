@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UsersStoreRequest;
 use App\Repositories\Member\UsersRepositoryContract;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,16 +23,24 @@ class UsersController extends Controller
     }
 
     /**
-     * Show the application dashboard.
-     *
-     * @return Response
+     * @return mixed
      */
     public function index()
     {
-        return view('backend.users')->withUsers($this->users->getUsersPaginated(10,10));
+        return view('backend.users')->withData($this->users->getUsersPaginated(10,10));
     }
 
-    public function edit(){
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function edit($id){
+        return view('backend.users_edit')->withInfo($this->users->findOrThrowException($id));
+    }
 
+    public function store(UsersStoreRequest $request){
+        dd($request->all());
+        $this->users->store($request->all());
+        return redirect()->back()->withFlashSuccess('用户更新成功');
     }
 }

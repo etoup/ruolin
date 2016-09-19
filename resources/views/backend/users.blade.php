@@ -93,19 +93,26 @@
 						</tr>
 					</thead>
 					<tbody>
-						@if ($users->count())
-							@foreach($users as $user)
+						@if ($data->count())
+							@foreach($data as $v)
 							<tr>
 								<td>
-									<img src="{{ $user->headimgurl }}" height="50" class="img-circle" alt="User Image" />
+									<img src="{{ $v->headimgurl }}" height="40" class="img-circle" alt="User Image" />
 								</td>
-								<td>{{ $user->nickname }}</td>
-								<td>{{ $user->email }}</td>
-								<td>{{ $user->mobile }}</td>
-								<td>{{ $user->company }}</td>
-								<td>{{ $user->position }}</td>
-								<td>{!! $user->action_buttons !!}</td>
+								<td>{{ $v->nickname }}</td>
+								<td>{{ $v->email }}</td>
+								<td>{{ $v->mobile }}</td>
+								<td>{{ $v->company }}</td>
+								<td>{{ $v->position }}</td>
+								<td>{!! $v->action_buttons !!}</td>
 							</tr>
+							<div class="modal fade" id="edit-{{ $v->id }}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+								<div class="modal-dialog">
+									<div class="modal-content">
+
+									</div>
+								</div>
+							</div>
 							@endforeach
 							@else
 							<td colspan="10">还没有相关数据！</td>
@@ -115,9 +122,9 @@
 			</div>
 		</div>
 		<div class="box-footer">
-			{{ trans('pagination.total', ['total' => $users->total()]) }}
+			{{ trans('pagination.total', ['total' => $data->total()]) }}
 			<div class="pull-right">
-				{{ $users->render() }}
+				{{ $data->render() }}
 			</div>
 		</div>
 	</div>

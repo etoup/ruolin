@@ -13,18 +13,7 @@ class MembersTableSeeder extends Seeder
      */
     public function run()
     {
-        if (env('DB_CONNECTION') == 'mysql') {
-            DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-        }
 
-        if (env('DB_CONNECTION') == 'mysql') {
-            DB::table(config('users.users_table'))->truncate();
-        } elseif (env('DB_CONNECTION') == 'sqlite') {
-            DB::statement('DELETE FROM ' . config('users.users_table'));
-        } else {
-            //For PostgreSQL or anything else
-            DB::statement('TRUNCATE TABLE ' . config('users.users_table') . ' CASCADE');
-        }
 
         //Add the master administrator, user id of 1
         $users = [
