@@ -52,7 +52,7 @@ class EloquentUsersRepository implements UsersRepositoryContract
      */
     public function store($input){
         $user = $this->findOrThrowException($input['id']);
-//        $this->checkUserByEmail($input,$user);
+        $this->checkUserByEmail($input,$user);
         $user->nickname = $input['nickname'];
         $user->email = $input['email'];
         $user->mobile = $input['mobile'];

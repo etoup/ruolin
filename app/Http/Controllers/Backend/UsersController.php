@@ -39,7 +39,6 @@ class UsersController extends Controller
     }
 
     public function store(UsersStoreRequest $request){
-        dd($request->all());
         $this->users->store($request->all());
         return redirect()->back()->withFlashSuccess('用户更新成功');
     }
