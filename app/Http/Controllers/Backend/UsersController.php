@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Repositories\Member\UsersRepositoryContract;
 
 /**
  * Class UsersController
@@ -11,6 +12,15 @@ use App\Http\Controllers\Controller;
  */
 class UsersController extends Controller
 {
+    protected $users;
+
+    /**
+     * @param UsersRepositoryContract $users
+     */
+    public function __construct(UsersRepositoryContract $users){
+        $this->users = $users;
+    }
+
     /**
      * Show the application dashboard.
      *
@@ -18,6 +28,6 @@ class UsersController extends Controller
      */
     public function index()
     {
-        return view('users');
+        return view('backend.users')->withUsers($this->users->getUsersPaginated(10,80));
     }
 }

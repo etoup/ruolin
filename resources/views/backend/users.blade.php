@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('htmlheader_title')
-	Backend
+	会员管理
 @endsection
 @section('contentheader_title')
 	会员管理
@@ -92,7 +92,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						@if (true)
+						@if ($users->count())
 							<tr>
 								<td>内容</td>
 								<td>内容</td>

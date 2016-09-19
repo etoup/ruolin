@@ -24,8 +24,8 @@ class UsersServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(
-            \App\Repositories\IUsers\UsersRepositoryContract::class,
-            \App\Repositories\IUsers\EloquentUsersRepository::class
+            \App\Repositories\Member\UsersRepositoryContract::class,
+            \App\Repositories\Member\EloquentUsersRepository::class
         );
     }
 }
