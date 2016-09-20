@@ -1,4 +1,10 @@
-@if (Session::get('flash_success'))
+@if ($errors->any())
+    <div class="alert alert-danger">
+        @foreach ($errors->all() as $error)
+            {!! $error !!}<br/>
+        @endforeach
+    </div>
+@elseif (Session::get('flash_success'))
     <div class="alert alert-success">
         @if(is_array(json_decode(Session::get('flash_success'), true)))
             {!! implode('', Session::get('flash_success')->all(':message<br/>')) !!}

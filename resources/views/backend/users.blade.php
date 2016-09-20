@@ -12,11 +12,11 @@
 
 
 @section('main-content')
-	<div class="alert alert-success alert-dismissible">
-		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-		<h4><i class="icon fa fa-check"></i> 提示</h4>
-		成功消息提示
-	</div>
+	{{--<div class="alert alert-success alert-dismissible">--}}
+		{{--<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>--}}
+		{{--<h4><i class="icon fa fa-check"></i> 提示</h4>--}}
+		{{--成功消息提示--}}
+	{{--</div>--}}
 	<div class="box">
 		<div class="box-header with-border">
 			<h3 class="box-title">搜索</h3>

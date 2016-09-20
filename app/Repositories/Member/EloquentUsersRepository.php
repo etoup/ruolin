@@ -53,6 +53,7 @@ class EloquentUsersRepository implements UsersRepositoryContract
     public function store($input){
         $user = $this->findOrThrowException($input['id']);
         $this->checkUserByEmail($input,$user);
+        $this->checkUserByMobile($input,$user);
         $user->nickname = $input['nickname'];
         $user->email = $input['email'];
         $user->mobile = $input['mobile'];
@@ -65,6 +66,11 @@ class EloquentUsersRepository implements UsersRepositoryContract
         return true;
     }
 
+    /**
+     * @param $input
+     * @param $user
+     * @throws GeneralException
+     */
     private function checkUserByEmail($input, $user)
     {
         //Figure out if email is not the same
@@ -72,6 +78,23 @@ class EloquentUsersRepository implements UsersRepositoryContract
             //Check to see if email exists
             if (Users::where('email', '=', $input['email'])->first()) {
                 throw new GeneralException('邮箱重复，请更换');
+            }
+
+        }
+    }
+
+    /**
+     * @param $input
+     * @param $user
+     * @throws GeneralException
+     */
+    private function checkUserByMobile($input, $user)
+    {
+        //Figure out if mobile is not the same
+        if ($user->mobile != $input['mobile']) {
+            //Check to see if mobile exists
+            if (Users::where('mobile', '=', $input['mobile'])->first()) {
+                throw new GeneralException('手机重复，请更换');
             }
 
         }

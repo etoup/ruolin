@@ -38,6 +38,10 @@ class UsersController extends Controller
         return view('backend.users_edit')->withInfo($this->users->findOrThrowException($id));
     }
 
+    /**
+     * @param UsersStoreRequest $request
+     * @return mixed
+     */
     public function store(UsersStoreRequest $request){
         $this->users->store($request->all());
         return redirect()->back()->withFlashSuccess('用户更新成功');

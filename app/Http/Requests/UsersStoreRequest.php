@@ -24,7 +24,7 @@ class UsersStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'nickname' => 'required|max:20'
+            'nickname' => 'required|max:40'
         ];
     }
 }
