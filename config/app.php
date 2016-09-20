@@ -178,6 +178,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\UsersServiceProvider::class,
+        App\Providers\ShowsServiceProvider::class,
 
         /*
          * Acacha Llum Service Providers...

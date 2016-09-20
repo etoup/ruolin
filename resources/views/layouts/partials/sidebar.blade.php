@@ -34,10 +34,14 @@
             <li class="header">{{ trans('adminlte_lang::message.header') }}</li>
             <!-- Optionally, you can add icons to the links -->
             <li class="{{ active_class(if_uri(['backend'])) }}"><a href="{{ url('backend') }}"><i class='fa fa-dashboard'></i> <span>控制台</span></a></li>
+
             <li class="{{ active_class(if_uri_pattern(['backend/users','backend/users/review'])) }} treeview">
+
                 <a href="#"><i class='fa fa-user'></i> <span>会员管理</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
+
                     <li class="{{ active_class(if_uri(['backend/users'])) }}"><a href="{{ route('backend.users') }}"><i class="fa fa-circle-o"></i> 会员列表</a></li>
+
                     <li class="{{ active_class(if_uri(['backend/users/review'])) }}"><a href="{{ route('backend.users.review') }}"><i class="fa fa-circle-o"></i> 会员审核</a></li>
                 </ul>
             </li>
@@ -55,11 +59,14 @@
                     <li><a href="#"><i class="fa fa-circle-o"></i> {{ trans('adminlte_lang::message.linklevel2') }}</a></li>
                 </ul>
             </li>
-            <li class="treeview">
+            <li class="{{ active_class(if_uri_pattern(['backend/shows','backend/shows/categories'])) }} treeview">
+
                 <a href="#"><i class='fa fa-video-camera'></i> <span>路演管理</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="#"><i class="fa fa-circle-o"></i> {{ trans('adminlte_lang::message.linklevel2') }}</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> {{ trans('adminlte_lang::message.linklevel2') }}</a></li>
+                    <li class="{{ active_class(if_uri(['backend/shows'])) }}"><a href="{{ route('backend.shows') }}"><i class="fa fa-circle-o"></i>路演列表</a></li>
+
+                    <li class="{{ active_class(if_uri(['backend/shows/categories'])) }}"><a href="{{ route('backend.shows.categories') }}"><i class="fa fa-circle-o"></i>路演分类</a></li>
+
                 </ul>
             </li>
             <li class="treeview">
@@ -78,7 +85,9 @@
             </li>
             <li class="header">快捷导航</li>
             <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>项目审核</span></a></li>
-            <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>路演审核</span></a></li>
+
+            <li ><a href="{{ route('backend.shows.review') }}"><i class="fa fa-circle-o text-yellow"></i> <span>路演审核</span></a></li>
+
             <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>联董审核</span></a></li>
         </ul><!-- /.sidebar-menu -->
     </section>

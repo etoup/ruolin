@@ -19,6 +19,10 @@ Auth::routes();
 Route::group(['namespace'=>'Backend','prefix'=>'backend','middleware'=>'auth'],function(){
     Route::get('/', 'BackendController@index')->name('backend');
     Route::get('/users', 'UsersController@index')->name('backend.users');
+    Route::get('/shows', 'ShowsController@index')->name('backend.shows');
+    Route::get('/shows/categories', 'ShowsController@categories')->name('backend.shows.categories');
+    Route::get('/shows/review', 'ShowsController@review')->name('backend.shows.review');
+    Route::get('/shows/addShows', 'ShowsController@addShows')->name('backend.shows.addShows');
     Route::get('/users/review', 'UsersController@index')->name('backend.users.review');
 });
 

@@ -4,14 +4,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Users extends Model
+class Shows extends Model
 {
     use SoftDeletes;
 
     /**
      * @var string
      */
-    protected $table = 'users';
+    protected $table = 'shows';
 
     /**
      * @var array
