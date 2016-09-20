@@ -32,29 +32,29 @@
 				<div class="col-lg-4 col-xs-4">
 					<div class="form-group">
 						{!! Form::label('nickname', '昵称') !!}
-						{!! Form::text('nickname', null, ['class' => 'form-control', 'placeholder' => '填写昵称']) !!}
+						{!! Form::text('nickname', request('nickname', $default = null), ['class' => 'form-control', 'placeholder' => '填写昵称']) !!}
 					</div>
 				</div>
 
 				<div class="col-lg-4 col-xs-4">
 					<div class="form-group">
 						{!! Form::label('email', '邮箱') !!}
-						{!! Form::text('email', null, ['class' => 'form-control', 'placeholder' => '填写邮箱']) !!}
+						{!! Form::text('email', request('email', $default = null), ['class' => 'form-control', 'placeholder' => '填写邮箱']) !!}
 					</div>
 				</div>
 				<div class="col-lg-4 col-xs-4">
 					<div class="form-group">
 						{!! Form::label('mobile', '手机') !!}
-						{!! Form::text('mobile', null, ['class' => 'form-control', 'placeholder' => '填写手机']) !!}
+						{!! Form::text('mobile', request('mobile', $default = null), ['class' => 'form-control', 'placeholder' => '填写手机']) !!}
 					</div>
 				</div>
 			</div>
 		</div>
 		<!-- /.box-body -->
 		<div class="box-footer">
-			<button type="reset" class="btn btn-sm btn-success pull-right" style="margin-left: 5px;">
-				<i class="fa fa-download"></i> 重置
-			</button>
+			<a href="{{ route('backend.users') }}" class="btn btn-sm btn-warning pull-left">
+				<i class="fa fa-mail-reply-all"></i> 取消搜索
+			</a>
 			<button type="submit" class="btn btn-sm btn-primary pull-right" style="margin-left: 5px;">
 				<i class="fa fa-search"></i> 搜索
 			</button>

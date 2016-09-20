@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UsersSearchRequest;
 use App\Http\Requests\UsersStoreRequest;
 use App\Repositories\Member\UsersRepositoryContract;
-use Illuminate\Support\Facades\Auth;
 
 /**
  * Class UsersController
@@ -31,6 +31,14 @@ class UsersController extends Controller
     }
 
     /**
+     * @return mixed
+     */
+    public function search(UsersSearchRequest $request)
+    {
+        return view('backend.users_search')->withData($this->users->getUsersSearchPaginated($request->all(),10,10));
+    }
+
+    /**
      * @param $id
      * @return mixed
      */
@@ -45,5 +53,14 @@ class UsersController extends Controller
     public function store(UsersStoreRequest $request){
         $this->users->store($request->all());
         return redirect()->back()->withFlashSuccess('用户更新成功');
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function destroy($id){
+        $this->users->destroy($id);
+        return redirect()->back()->withFlashSuccess('用户删除成功');
     }
 }

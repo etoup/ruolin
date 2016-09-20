@@ -15,6 +15,7 @@ require('laravel-elixir-vue');
 
 elixir(function(mix) {
     mix.sass('app.scss')
+        .sass('sweetalert.scss')
         .webpack('app.js');
     //Adminlte
     mix.less('adminlte-app.less');

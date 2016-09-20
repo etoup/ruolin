@@ -2,6 +2,7 @@
     <meta charset="UTF-8">
     <title> 若邻汇 - @yield('htmlheader_title', 'Your title here') </title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <meta name="_token" content="{{ csrf_token() }}" />
     <!-- Bootstrap 3.3.4 -->
     <link href="{{ asset('/css/bootstrap.css') }}" rel="stylesheet" type="text/css" />
     <!-- Font Awesome Icons -->
@@ -21,6 +22,8 @@
     <link href="{{ asset('/plugins/iCheck/square/blue.css') }}" rel="stylesheet" type="text/css" />
     <!-- pace -->
     <link href="{{ asset('/css/pace.min.css') }}" rel="stylesheet" type="text/css" />
+    <!-- sweetalert -->
+    <link href="{{ asset('/css/sweetalert.css') }}" rel="stylesheet" type="text/css" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('htmlheader_title')
-	会员管理
+	项目管理
 @endsection
 @section('contentheader_title')
-	会员管理
+	项目管理
 @endsection
 @section('contentheader_description')
-	会员列表
+	项目列表
 @endsection
 
 
@@ -26,36 +26,23 @@
 				</button>
 			</div>
 		</div>
-		{!! Form::open(['route' => 'backend.users.search','role' => 'form']) !!}
+		{!! Form::open(['role' => 'form']) !!}
 		<div class="box-body">
 			<div class="row">
 				<div class="col-lg-4 col-xs-4">
 					<div class="form-group">
-						{!! Form::label('nickname', '昵称') !!}
-						{!! Form::text('nickname', null, ['class' => 'form-control', 'placeholder' => '填写昵称']) !!}
-					</div>
-				</div>
-
-				<div class="col-lg-4 col-xs-4">
-					<div class="form-group">
-						{!! Form::label('email', '邮箱') !!}
-						{!! Form::text('email', null, ['class' => 'form-control', 'placeholder' => '填写邮箱']) !!}
-					</div>
-				</div>
-				<div class="col-lg-4 col-xs-4">
-					<div class="form-group">
-						{!! Form::label('mobile', '手机') !!}
-						{!! Form::text('mobile', null, ['class' => 'form-control', 'placeholder' => '填写手机']) !!}
+						{!! Form::label('title', '项目名称') !!}
+						{!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => '填写项目名称关键字']) !!}
 					</div>
 				</div>
 			</div>
 		</div>
 		<!-- /.box-body -->
 		<div class="box-footer">
-			<button type="reset" class="btn btn-sm btn-success pull-right" style="margin-left: 5px;">
-				<i class="fa fa-download"></i> 重置
+			<button type="button" class="btn btn-sm btn-success pull-right" style="margin-left: 5px;">
+				<i class="fa fa-download"></i> 导出
 			</button>
-			<button type="submit" class="btn btn-sm btn-primary pull-right" style="margin-left: 5px;">
+			<button type="button" class="btn btn-sm btn-primary pull-right" style="margin-left: 5px;">
 				<i class="fa fa-search"></i> 搜索
 			</button>
 		</div>
@@ -63,7 +50,7 @@
 	</div>
 	<div class="nav-tabs-custom">
 		<ul class="nav nav-tabs">
-			<li class="active"><a href="#tab_1" data-toggle="tab">会员列表</a></li>
+			<li class="active"><a href="#tab_1" data-toggle="tab">项目列表</a></li>
 			<li class="pull-right" data-toggle="tooltip" title="" data-original-title="创建会员">
 				<a href="#" data-toggle="modal" data-target="#create" class="text-muted"><i class="fa fa-plus"></i></a>
 			</li>
@@ -96,13 +83,13 @@
 							@foreach($data as $v)
 							<tr>
 								<td>
-									<img src="{{ $v->headimgurl }}" height="40" class="img-circle" alt="User Image" />
+
 								</td>
-								<td>{{ $v->nickname }}</td>
-								<td>{{ $v->email }}</td>
-								<td>{{ $v->mobile }}</td>
-								<td>{{ $v->company }}</td>
-								<td>{{ $v->position }}</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
 								<td>{!! $v->action_buttons !!}</td>
 							</tr>
 							<div class="modal fade" id="edit-{{ $v->id }}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">

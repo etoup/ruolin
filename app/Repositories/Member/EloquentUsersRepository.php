@@ -25,6 +25,41 @@ class EloquentUsersRepository implements UsersRepositoryContract
             ->paginate($per_page);
     }
 
+    public function getUsersSearchPaginated($input, $per_page, $roles = 10, $order_by = 'id', $sort = 'asc'){
+        $builder = Users::where('roles', $roles)
+            ->orderBy($order_by, $sort);
+
+        if(count($input)){
+            $fields_search = config('users.fields_search');
+
+            foreach($input as $field => $value){
+                if (empty($value)) {
+                    continue;
+                }
+                if (!isset($fields_search[$field])) {
+                    continue;
+                }
+
+                switch($field){
+                    case 'date':
+                        $date = explode('-',$value);
+                        $value = [date('Y-m-d h:i:s',strtotime($date[0])),date('Y-m-d h:i:s',strtotime($date[1]))];
+                        break;
+                    default:
+                        $value = [$value];
+                }
+
+                $search = $fields_search[$field];
+
+                $builder->whereRaw($search['tags'], $value);
+            }
+        }
+
+        $list = $builder->paginate($per_page);
+
+        return $list;
+    }
+
     /**
      * @param $id
      * @param bool $withRoles
@@ -64,6 +99,15 @@ class EloquentUsersRepository implements UsersRepositoryContract
         $user->remark = $input['remark'];
         $user->save();
         return true;
+    }
+
+    public function destroy($id){
+        $user = $this->findOrThrowException($id);
+        if($user->delete()){
+            return true;
+        }
+
+        throw new GeneralException('删除失败');
     }
 
     /**
