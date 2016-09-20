@@ -92,7 +92,8 @@
 					<tbody>
 						@if (true)
 							@foreach($shows as $v)
-							<tr>	<td>
+							<tr>
+								<td>
 								<img src="{{ $v->thumbnail }}" height="40" class="img-circle" alt="Shows Image" />
 								</td>
 								<td><?php echo $v->title ?></td>

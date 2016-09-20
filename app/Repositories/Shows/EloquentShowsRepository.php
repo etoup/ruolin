@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Shows;
 use App\Models\Shows;
+use App\Models\Shows_categories;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -21,6 +22,7 @@ class EloquentShowsRepository implements ShowsRepositoryContract
      */
     public function getShowsPaginated($per_page, $order_by = 'shows.id', $sort = 'asc')
     {
+
 /*        $sql = "select shows.*,users.name from shows  JOIN users on shows.users_id = users.id limit $per_page";
         return DB::select($sql);*/
         //获取路演shows表数据
@@ -30,9 +32,9 @@ class EloquentShowsRepository implements ShowsRepositoryContract
             ->paginate($per_page);
     }
     //定义获取分类信息
-    public function getCategory($per_page){
-        $sql="select * from shows_categories ORDER BY sort limit $per_page";
-        return DB::select($sql);
+    public function getCategory($per_page,$order_by = 'id', $sort = 'asc'){
+      return Shows_categories::orderBy($order_by, $sort)
+          ->paginate($per_page);
     }
 
     public function findOrThrowException($id){
@@ -57,14 +59,26 @@ class EloquentShowsRepository implements ShowsRepositoryContract
     }
     //定义修改方法
     public function edit($input){
-        $shows = new Shows;
-        $shows::where('id', $input->id)
-            ->update(['title' => $input->title,'video'=>$input->video,'shows_categories_id'=>$input->shows_categories_id]);
+        $shows = $this->findOrThrowException($input['id']);
+        $shows->title = $input['title'];
+        $shows->thumbnail = $input['thumbnail'];
+        $shows->shows_categories_id = $input['shows_categories_id'];
+        $shows->video = $input['video'];
+        $shows->original = $input['original'];
+        $shows->content = $input['content'];
+        $shows->users_id = Auth::user()->id;
+        $shows->save();
+        return true;
 
     }
     //定义删除方法
     public function del($id){
+        $shows = $this->findOrThrowException($id);
+        if($shows->delete()){
+            return true;
+        }
 
+        throw new GeneralException('删除失败');
     }
 
 }

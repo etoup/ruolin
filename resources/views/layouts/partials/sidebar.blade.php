@@ -45,11 +45,13 @@
                     <li class="{{ active_class(if_uri(['backend/users/review'])) }}"><a href="{{ route('backend.users.review') }}"><i class="fa fa-circle-o"></i> 会员审核</a></li>
                 </ul>
             </li>
-            <li class="treeview">
+            <li class="{{ active_class(if_uri_pattern(['backend/projects','backend/regions'])) }} treeview">
                 <a href="#"><i class='fa fa-tasks'></i> <span>项目管理</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="#"><i class="fa fa-circle-o"></i> {{ trans('adminlte_lang::message.linklevel2') }}</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> {{ trans('adminlte_lang::message.linklevel2') }}</a></li>
+                    <li class="{{ active_class(if_uri(['backend/projects'])) }}"><a href="{{ route('backend.projects') }}"><i class="fa fa-circle-o"></i> 项目列表</a></li>
+                    <li class="{{ active_class(if_uri(['backend/regions'])) }}"><a href="{{ route('backend.regions') }}"><i class="fa fa-circle-o"></i> 地区管理</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> 行业管理</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> 额度管理</a></li>
                 </ul>
             </li>
             <li class="treeview">

@@ -1,19 +1,20 @@
 <?php
 
 namespace App\Models;
-use App\Models\Traits\Attribute\ShowCateAttribute;
+
+use App\Models\Traits\Attribute\RegionsAttribute;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Traits\Attribute\ShowsAttribute;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Shows extends Model
+class Regions extends Model
 {
-    use SoftDeletes,ShowsAttribute;
+    use SoftDeletes, RegionsAttribute;
 
     /**
      * @var string
      */
-    protected $table = 'shows';
+    protected $table = 'regions';
+
     /**
      * @var array
      */

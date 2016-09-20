@@ -1,22 +1,22 @@
 @extends('layouts.app')
 
 @section('htmlheader_title')
-	路演管理
+	项目管理
 @endsection
 @section('contentheader_title')
-	路演管理
+	项目管理
 @endsection
 @section('contentheader_description')
-	路演分类
+	项目列表
 @endsection
 
 
 @section('main-content')
-{{--	<div class="alert alert-success alert-dismissible">
-		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-		<h4><i class="icon fa fa-check"></i>提示</h4>
-		成功消息提示
-	</div>--}}
+	{{--<div class="alert alert-success alert-dismissible">--}}
+		{{--<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>--}}
+		{{--<h4><i class="icon fa fa-check"></i> 提示</h4>--}}
+		{{--成功消息提示--}}
+	{{--</div>--}}
 	<div class="box">
 		<div class="box-header with-border">
 			<h3 class="box-title">搜索</h3>
@@ -31,22 +31,8 @@
 			<div class="row">
 				<div class="col-lg-4 col-xs-4">
 					<div class="form-group">
-						{!! Form::label('title', '商品名称') !!}
-						{!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => '填写商品名称']) !!}
-					</div>
-				</div>
-
-				<div class="col-lg-4 col-xs-4">
-					<div class="form-group">
-						{!! Form::label('date', '发布时间') !!}
-
-						<div class="input-group">
-							<div class="input-group-addon">
-								<i class="fa fa-calendar"></i>
-							</div>
-							<input type="text" class="form-control pull-right" id="reservation">
-						</div>
-						<!-- /.input group -->
+						{!! Form::label('title', '项目名称') !!}
+						{!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => '填写项目名称关键字']) !!}
 					</div>
 				</div>
 			</div>
@@ -64,8 +50,8 @@
 	</div>
 	<div class="nav-tabs-custom">
 		<ul class="nav nav-tabs">
-			<li class="active"><a href="#tab_1" data-toggle="tab">分类列表</a></li>
-			<li class="pull-right" data-toggle="tooltip" title="" data-original-title="添加分类">
+			<li class="active"><a href="#tab_1" data-toggle="tab">项目列表</a></li>
+			<li class="pull-right" data-toggle="tooltip" title="" data-original-title="创建会员">
 				<a href="#" data-toggle="modal" data-target="#create" class="text-muted"><i class="fa fa-plus"></i></a>
 			</li>
 			<div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
@@ -83,19 +69,27 @@
 				<table class="table table-striped table-bordered table-hover">
 					<thead>
 						<tr>
-							<th>路演标题</th>
-							<th>路演类型</th>
-							<th>排序</th>
+							<th>头像</th>
+							<th>昵称</th>
+							<th>邮箱</th>
+							<th>手机</th>
+							<th>公司</th>
+							<th>职位</th>
 							<th>操作</th>
 						</tr>
 					</thead>
 					<tbody>
-						@if (true)
-						@foreach($cate as $v)
+						@if ($data->count())
+							@foreach($data as $v)
 							<tr>
-								<td>{{$v->title}}</td>
-								<td>{{$v->types}}</td>
-								<td>{{$v->sort}}</td>
+								<td>
+
+								</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
 								<td>{!! $v->action_buttons !!}</td>
 							</tr>
 							<div class="modal fade" id="edit-{{ $v->id }}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
@@ -105,7 +99,7 @@
 									</div>
 								</div>
 							</div>
-						@endforeach
+							@endforeach
 							@else
 							<td colspan="10">还没有相关数据！</td>
 					    @endif
@@ -113,5 +107,12 @@
 				</table>
 			</div>
 		</div>
+		<div class="box-footer">
+			{{ trans('pagination.total', ['total' => $data->total()]) }}
+			<div class="pull-right">
+				{{ $data->render() }}
+			</div>
+		</div>
 	</div>
+
 @endsection

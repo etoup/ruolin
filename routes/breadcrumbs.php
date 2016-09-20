@@ -17,6 +17,7 @@ Breadcrumbs::register('backend.users', function($breadcrumbs)
     $breadcrumbs->parent('backend');
     $breadcrumbs->push('会员列表', route('backend.users'));
 });
+
 Breadcrumbs::register('backend.shows', function($breadcrumbs)
 {
     $breadcrumbs->parent('backend');
@@ -29,9 +30,14 @@ Breadcrumbs::register('backend.shows.categories', function($breadcrumbs)
     $breadcrumbs->push('路演分类', route('backend.shows.categories'));
 
 });
-Breadcrumbs::register('backend.shows.review', function($breadcrumbs)
-{
+Breadcrumbs::register('backend.shows.review', function($breadcrumbs) {
     $breadcrumbs->parent('backend');
     $breadcrumbs->push('路演审核', route('backend.shows.review'));
 
+});
+
+Breadcrumbs::register('backend.projects', function($breadcrumbs)
+{
+    $breadcrumbs->parent('backend');
+    $breadcrumbs->push('项目列表', route('backend.projects'));
 });

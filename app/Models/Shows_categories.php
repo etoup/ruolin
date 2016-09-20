@@ -3,17 +3,16 @@
 namespace App\Models;
 use App\Models\Traits\Attribute\ShowCateAttribute;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Traits\Attribute\ShowsAttribute;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Shows extends Model
+class Shows_categories extends Model
 {
-    use SoftDeletes,ShowsAttribute;
+    use SoftDeletes,ShowCateAttribute;
 
     /**
      * @var string
      */
-    protected $table = 'shows';
+    protected $table = 'shows_categories';
     /**
      * @var array
      */

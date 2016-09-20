@@ -17,7 +17,7 @@
 | loading any of our classes later on. It feels nice to relax.
 |
 */
-// echo 123;exit;
+
 require __DIR__.'/../bootstrap/autoload.php';
 
 /*
@@ -49,7 +49,9 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
 $response = $kernel->handle(
+
     $request = Illuminate\Http\Request::capture()
+
 );
 
 $response->send();

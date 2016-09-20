@@ -33,16 +33,17 @@
                                     <div class="form-group">
                                         {!! Form::label('thumbnail', '缩略图') !!}
                                         {!! Form::text('thumbnail', $info->thumbnail, ['class' => 'form-control', 'placeholder' => '上传图片']) !!}
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-xs-6">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6 col-xs-6">
-                                    <div class="form-group">
-                                        {!! Form::label('viedo', '视频地址') !!}
-                                        {!! Form::text('viedo', $info->viedo, ['class' => 'form-control', 'placeholder' => '输入视频地址']) !!}
+
+                                   </div>
+                               </div>
+                               <div class="col-lg-6 col-xs-6">
+                               </div>
+                           </div>
+                           <div class="row">
+                               <div class="col-lg-6 col-xs-6">
+                                   <div class="form-group">
+                                       {!! Form::label('video', '视频地址') !!}
+                                        {!! Form::text('video', $info->video, ['class' => 'form-control', 'placeholder' => '输入视频地址']) !!}
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-xs-6">
@@ -70,6 +71,8 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal">关闭</button>
                             <button type="submit" class="btn btn-primary btn-flat">提交</button>
+                            {!! Form::hidden('id', $info->id) !!}
+                            {!! Form::hidden('original', $info->thumbnail) !!}
                         </div>
                         {!! Form::close() !!}
 

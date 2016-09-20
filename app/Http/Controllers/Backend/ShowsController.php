@@ -1,10 +1,10 @@
 <?php
-
 namespace App\Http\Controllers\Backend;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Repositories\Shows\ShowsRepositoryContract;
 use Illuminate\Support\Facades\Auth;
+use Symfony\Component\Routing\Annotation\Route;
 
 
 /**
@@ -43,9 +43,7 @@ class ShowsController extends Controller
 
     public function addOk(Requests\ShowsAddRequest $request){
         $this->shows->created($request->all());
-            return redirect()->back()->withFlashSuccess('添加成功');
-
-
+            return redirect()->route('backend.shows')->withFlashSuccess('添加成功');
     }
 
     //路演修改
@@ -54,20 +52,26 @@ class ShowsController extends Controller
     }
 
     //修改路演成功
-    public function editOk(Requests\ShowsAddRequest $request){
-
+    public function editOk(Requests\ShowsEditRequest $request){
+/*        dd($request);exit;*/
         $this->shows->edit($request->all());
+        return redirect()->route('backend.shows')->withFlashSuccess('修改成功');
 
     }
 
     //删除路演
     public function del($id){
         $this->shows->del($id);
-        return redirect()->back()->withFlashSuccess('操作成功');
+        return redirect()->back()->withFlashSuccess('删除成功');
     }
     //路演分类
     public function categories(){
-        return view('backend.shows.categories')->withCate($this->shows->getCategory(5));
+        return view('backend.show.categories')->withCate($this->shows->getCategory(5));
+    }
+
+    //新增路演分类
+    public function addCate(){
+        return view('backend.show.addCate');
     }
 
 

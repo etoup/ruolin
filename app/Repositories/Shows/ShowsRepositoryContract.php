@@ -16,8 +16,9 @@ interface ShowsRepositoryContract
      * @return mixed
      */
     public function getShowsPaginated($per_page, $order_by = 'id', $sort = 'asc');
-    public function getCategory($per_page);
+    public function getCategory($per_page,$order_by = 'id', $sort = 'asc');
     public function findOrThrowException($id);
     public function created($input);
     public function edit($input);
+    public function del($id);
 }

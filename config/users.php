@@ -7,5 +7,19 @@
  */
 
 return [
-    'users_table' => 'users'
+    'users_table' => 'users',
+    'fields_search' => [
+        'nickname'  => [
+            'label' => '昵称',
+            'tags'  => "nickname like CONCAT('%', ?, '%')"
+        ],
+        'email'  => [
+            'label' => '属性',
+            'tags'  => "email like CONCAT('%', ?, '%')"
+        ],
+        'mobile'  => [
+            'label' => '手机号码',
+            'tags'  => "mobile like CONCAT('%', ?, '%')"
+        ]
+    ],
 ];
