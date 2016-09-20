@@ -9,8 +9,6 @@
 @section('contentheader_description')
 	路演列表
 @endsection
-
-
 @section('main-content')
 {{--	<div class="alert alert-success alert-dismissible">
 		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -66,14 +64,12 @@
 		<ul class="nav nav-tabs">
 			<li class="active"><a href="#tab_1" data-toggle="tab">路演列表</a></li>
 			<li class="pull-right" data-toggle="tooltip" title="" data-original-title="创建路演">
-				<a href="{{ route('backend.shows.addShows') }}" data-toggle="modal" data-target="#create" class="text-muted"><i class="fa fa-plus"></i></a>
+				<a href="{{ route('backend.shows.add') }}" data-toggle="modal" class="text-muted"><i class="fa fa-plus"></i></a>
 			</li>
 			<div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
 				<div class="modal-dialog">
 					<div class="modal-content">
-				<!--弹出层，新增路演开始-->
-						<h1>新增路演</h1>
-				<!--弹出层，新增路演结束-->
+
 					</div>
 				</div>
 			</div>
@@ -83,9 +79,9 @@
 				<table class="table table-striped table-bordered table-hover">
 					<thead>
 						<tr>
-							<th>标题</th>
+
 							<th>缩略图</th>
-							<th>视频</th>
+							<th>标题</th>
 							<th>点击量</th>
 							<th>点赞量</th>
 							<th>更新时间</th>
@@ -96,16 +92,23 @@
 					<tbody>
 						@if (true)
 							@foreach($shows as $v)
-							<tr>
+							<tr>	<td>
+								<img src="{{ $v->thumbnail }}" height="40" class="img-circle" alt="Shows Image" />
+								</td>
 								<td><?php echo $v->title ?></td>
-								<td><img src="<?php echo $v->thumbnail ?>"></td>
-								<td><?php echo $v->video?></td>
 								<td><?php echo $v->hits ?></td>
 								<td><?php echo $v->likes ?></td>
 								<td><?php echo $v->updated_at?></td>
 								<td><?php echo $v->name?></td>
-								<td>-----</td>
+								<td>{!! $v->action_buttons !!}</td>
 							</tr>
+							<div class="modal fade" id="edit-{{ $v->id }}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+								<div class="modal-dialog">
+									<div class="modal-content">
+
+									</div>
+								</div>
+							</div>
 							@endforeach
 							@else
 							<td colspan="10">还没有相关数据！</td>
@@ -115,4 +118,10 @@
 			</div>
 		</div>
 	</div>
+<script type="text/javascript" src="/plugins/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="/plugins/ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript">
+	var ue =UE.getEditor('container');
+</script>
 @endsection
+

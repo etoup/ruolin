@@ -2,11 +2,12 @@
 
 namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Traits\Attribute\ShowsAttribute;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Shows extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes,ShowsAttribute;
 
     /**
      * @var string

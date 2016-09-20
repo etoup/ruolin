@@ -23,8 +23,9 @@ class CreateShowsTable extends Migration
             $table->string('video');//视频地址
             $table->string('title',100);
             $table->text('content');
-            $table->smallInteger('hits');
-            $table->smallInteger('likes');
+            $table->tinyInteger('status')->default(0);
+            $table->integer('hits')->default(0);
+            $table->integer('likes')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });
