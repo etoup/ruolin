@@ -29,6 +29,10 @@ Route::group(['namespace'=>'Backend','prefix'=>'backend','middleware'=>'auth'],f
     Route::get('/projects', 'ProjectsController@index')->name('backend.projects');
     Route::get('/projects/create','ProjectsController@create')->name('backend.projects.create');
     Route::post('/projects/created','ProjectsController@created')->name('backend.projects.created');
+    Route::get('/projects/edit/{id}','ProjectsController@edit')->name('backend.projects.edit');
+    Route::delete('/projects/destroy/{id}','ProjectsController@destroy')->name('backend.projects.destroy');
+    Route::post('/projects/store','ProjectsController@store')->name('backend.projects.store');
+    Route::post('/projects/search','ProjectsController@search')->name('backend.projects.search');
 
     Route::get('/regions', 'RegionsController@index')->name('backend.regions');
     Route::get('/regions/create', 'RegionsController@create')->name('backend.regions.create');
