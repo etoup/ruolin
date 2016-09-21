@@ -28,6 +28,25 @@ Route::group(['namespace'=>'Backend','prefix'=>'backend','middleware'=>'auth'],f
     Route::get('/regions', 'RegionsController@index')->name('backend.regions');
     Route::get('/regions/create', 'RegionsController@create')->name('backend.regions.create');
     Route::post('/regions/created', 'RegionsController@created')->name('backend.regions.created');
+    Route::get('/regions/edit/{id}', 'RegionsController@edit')->name('backend.regions.edit');
+    Route::delete('/regions/destroy/{id}', 'RegionsController@destroy')->name('backend.regions.destroy');
+    Route::post('/regions/store', 'RegionsController@store')->name('backend.regions.store');
+    Route::post('/regions/search', 'RegionsController@search')->name('backend.regions.search');
 
+    Route::get('/industries','IndustriesController@index')->name('backend.industries');
+    Route::get('/industries/create','IndustriesController@create')->name('backend.industries.create');
+    Route::post('/industries/created','IndustriesController@created')->name('backend.industries.created');
+    Route::get('/industries/edit/{id}', 'IndustriesController@edit')->name('backend.industries.edit');
+    Route::delete('/industries/destroy/{id}', 'IndustriesController@destroy')->name('backend.industries.destroy');
+    Route::post('/industries/store', 'IndustriesController@store')->name('backend.industries.store');
+    Route::post('/industries/search', 'IndustriesController@search')->name('backend.industries.search');
+
+    Route::get('/quotas','QuotasController@index')->name('backend.quotas');
+    Route::get('/quotas/create','QuotasController@create')->name('backend.quotas.create');
+    Route::post('/quotas/created','QuotasController@created')->name('backend.quotas.created');
+    Route::get('/quotas/edit/{id}', 'QuotasController@edit')->name('backend.quotas.edit');
+    Route::delete('/quotas/destroy/{id}', 'QuotasController@destroy')->name('backend.quotas.destroy');
+    Route::post('/quotas/store', 'QuotasController@store')->name('backend.quotas.store');
+    Route::post('/quotas/search', 'QuotasController@search')->name('backend.quotas.search');
 });
 

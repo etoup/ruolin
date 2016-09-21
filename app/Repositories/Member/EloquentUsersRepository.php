@@ -25,6 +25,14 @@ class EloquentUsersRepository implements UsersRepositoryContract
             ->paginate($per_page);
     }
 
+    /**
+     * @param $input
+     * @param $per_page
+     * @param int $roles
+     * @param string $order_by
+     * @param string $sort
+     * @return mixed
+     */
     public function getUsersSearchPaginated($input, $per_page, $roles = 10, $order_by = 'id', $sort = 'asc'){
         $builder = Users::where('roles', $roles)
             ->orderBy($order_by, $sort);

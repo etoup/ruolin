@@ -26,14 +26,17 @@
 				</button>
 			</div>
 		</div>
-		<div class="box-footer">
+		<div class="box-body">
 			<div class="row">
 				<div class="col-lg-4 col-xs-4">
 					{!! Form::open(['route' => 'backend.regions.search','role' => 'form']) !!}
 						<div class="input-group">
-							{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => '填写地区名称']) !!}
+							{!! Form::text('name', request('name', $default = null), ['class' => 'form-control', 'placeholder' => '填写地区名称']) !!}
                           <span class="input-group-btn">
                             <button type="submit" class="btn btn-warning btn-flat">搜索</button>
+                          </span>
+							<span class="input-group-btn">
+                            <a href="{{ route('backend.regions') }}" class="btn btn-danger btn-flat">取消搜索</a>
                           </span>
 						</div>
 					{!! Form::close() !!}
@@ -81,7 +84,7 @@
 								<td>{!! $v->action_buttons !!}</td>
 							</tr>
 							<div class="modal fade" id="edit-{{ $v->id }}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-								<div class="modal-dialog modal-sm">
+								<div class="modal-dialog">
 									<div class="modal-content">
 
 									</div>

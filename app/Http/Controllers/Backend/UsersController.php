@@ -31,6 +31,7 @@ class UsersController extends Controller
     }
 
     /**
+     * @param UsersSearchRequest $request
      * @return mixed
      */
     public function search(UsersSearchRequest $request)

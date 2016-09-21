@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('htmlheader_title')
-	地区管理
+	额度管理
 @endsection
 @section('contentheader_title')
-	地区管理
+	额度管理
 @endsection
 @section('contentheader_description')
-	地区列表
+	额度列表
 @endsection
 
 
@@ -29,13 +29,13 @@
 		<div class="box-footer">
 			<div class="row">
 				<div class="col-lg-4 col-xs-4">
-					{!! Form::open(['route' => 'backend.regions.search','role' => 'form']) !!}
-						<div class="input-group">
-							{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => '填写地区名称']) !!}
+					{!! Form::open(['route' => 'backend.industries.search','role' => 'form']) !!}
+					<div class="input-group">
+						{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => '填写额度']) !!}
                           <span class="input-group-btn">
                             <button type="submit" class="btn btn-warning btn-flat">搜索</button>
                           </span>
-						</div>
+					</div>
 					{!! Form::close() !!}
 				</div>
 			</div>
@@ -44,9 +44,9 @@
 	</div>
 	<div class="nav-tabs-custom">
 		<ul class="nav nav-tabs">
-			<li class="active"><a href="#tab_1" data-toggle="tab">地区列表</a></li>
-			<li class="pull-right" data-toggle="tooltip" title="" data-original-title="新增地区">
-				<a href="{{ route('backend.regions.create') }}" data-toggle="modal" data-target="#create" class="text-muted"><i class="fa fa-plus"></i></a>
+			<li class="active"><a href="#tab_1" data-toggle="tab">额度列表</a></li>
+			<li class="pull-right" data-toggle="tooltip" title="" data-original-title="新增额度">
+				<a href="{{ route('backend.industries.create') }}" data-toggle="modal" data-target="#create" class="text-muted"><i class="fa fa-plus"></i></a>
 			</li>
 			<div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
 				<div class="modal-dialog modal-sm">
@@ -64,7 +64,7 @@
 					<thead>
 						<tr>
 							<th>ID</th>
-							<th>地区名称</th>
+							<th>额度</th>
 							<th>排序</th>
 							<th>时间</th>
 							<th>操作</th>
@@ -73,24 +73,24 @@
 					<tbody>
 						@if ($data->count())
 							@foreach($data as $v)
-							<tr>
-								<td>{{ $v->id }}</td>
-								<td>{{ $v->name }}</td>
-								<td>{{ $v->sort }}</td>
-								<td>{{ $v->created_at }}</td>
-								<td>{!! $v->action_buttons !!}</td>
-							</tr>
-							<div class="modal fade" id="edit-{{ $v->id }}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-								<div class="modal-dialog modal-sm">
-									<div class="modal-content">
+								<tr>
+									<td>{{ $v->id }}</td>
+									<td>{{ $v->name }}</td>
+									<td>{{ $v->sort }}</td>
+									<td>{{ $v->created_at }}</td>
+									<td>{!! $v->action_buttons !!}</td>
+								</tr>
+								<div class="modal fade" id="edit-{{ $v->id }}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+									<div class="modal-dialog modal-sm">
+										<div class="modal-content">
 
+										</div>
 									</div>
 								</div>
-							</div>
 							@endforeach
-							@else
+						@else
 							<td colspan="10">还没有相关数据！</td>
-					    @endif
+						@endif
 					</tbody>
 				</table>
 			</div>

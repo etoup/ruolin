@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RegionsCreatedRequest extends FormRequest
+class IndustriesSearchRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,14 +24,7 @@ class RegionsCreatedRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:40'
-        ];
-    }
 
-    public function attributes()
-    {
-        return [
-            'name' => '地区名称'
         ];
     }
 }
