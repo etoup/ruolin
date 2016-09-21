@@ -1,24 +1,22 @@
 @extends('layouts.app')
 
 @section('htmlheader_title')
-	项目管理
+	区间管理
 @endsection
 @section('contentheader_title')
-	项目管理
+	区间管理
 @endsection
 @section('contentheader_description')
-	项目列表
+	区间列表
 @endsection
 
 
 @section('main-content')
-	@if(!$regions->count())
-	<div class="alert alert-warning alert-dismissible">
-		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-		<h4><i class="icon fa fa-warning"></i> 提示</h4>
-		还没有添加地区信息，请添加
-	</div>
-	@endif
+	{{--<div class="alert alert-success alert-dismissible">--}}
+		{{--<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>--}}
+		{{--<h4><i class="icon fa fa-check"></i> 提示</h4>--}}
+		{{--成功消息提示--}}
+	{{--</div>--}}
 	<div class="box">
 		<div class="box-header with-border">
 			<h3 class="box-title">搜索</h3>
@@ -28,36 +26,33 @@
 				</button>
 			</div>
 		</div>
-		{!! Form::open(['role' => 'form']) !!}
 		<div class="box-body">
 			<div class="row">
 				<div class="col-lg-4 col-xs-4">
-					<div class="form-group">
-						{!! Form::label('title', '项目名称') !!}
-						{!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => '填写项目名称关键字']) !!}
-					</div>
+					{!! Form::open(['route' => 'backend.quotas.search','role' => 'form']) !!}
+						<div class="input-group">
+							{!! Form::text('name', request('name', $default = null), ['class' => 'form-control', 'placeholder' => '填写额度区间']) !!}
+                          <span class="input-group-btn">
+                            <button type="submit" class="btn btn-warning btn-flat">搜索</button>
+                          </span>
+							<span class="input-group-btn">
+                            <a href="{{ route('backend.quotas') }}" class="btn btn-danger btn-flat">取消搜索</a>
+                          </span>
+						</div>
+					{!! Form::close() !!}
 				</div>
 			</div>
+
 		</div>
-		<!-- /.box-body -->
-		<div class="box-footer">
-			<button type="button" class="btn btn-sm btn-success pull-right" style="margin-left: 5px;">
-				<i class="fa fa-download"></i> 导出
-			</button>
-			<button type="button" class="btn btn-sm btn-primary pull-right" style="margin-left: 5px;">
-				<i class="fa fa-search"></i> 搜索
-			</button>
-		</div>
-		{!! Form::close() !!}
 	</div>
 	<div class="nav-tabs-custom">
 		<ul class="nav nav-tabs">
-			<li class="active"><a href="#tab_1" data-toggle="tab">项目列表</a></li>
-			<li class="pull-right" data-toggle="tooltip" title="" data-original-title="创建项目">
-				<a href="{{ route('backend.projects.create') }}" data-toggle="modal" data-target="#create" class="text-muted"><i class="fa fa-plus"></i></a>
+			<li class="active"><a href="#tab_1" data-toggle="tab">额度列表</a></li>
+			<li class="pull-right" data-toggle="tooltip" title="" data-original-title="新增行业">
+				<a href="{{ route('backend.quotas.create') }}" data-toggle="modal" data-target="#create" class="text-muted"><i class="fa fa-plus"></i></a>
 			</li>
 			<div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-				<div class="modal-dialog">
+				<div class="modal-dialog modal-sm">
 					<div class="modal-content">
 
 					</div>
@@ -71,12 +66,10 @@
 				<table class="table table-striped table-bordered table-hover">
 					<thead>
 						<tr>
-							<th>头像</th>
-							<th>昵称</th>
-							<th>邮箱</th>
-							<th>手机</th>
-							<th>公司</th>
-							<th>职位</th>
+							<th>ID</th>
+							<th>区间</th>
+							<th>排序</th>
+							<th>时间</th>
 							<th>操作</th>
 						</tr>
 					</thead>
@@ -84,14 +77,10 @@
 						@if ($data->count())
 							@foreach($data as $v)
 							<tr>
-								<td>
-
-								</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>{{ $v->id }}</td>
+								<td>{{ $v->name }}</td>
+								<td>{{ $v->sort }}</td>
+								<td>{{ $v->created_at }}</td>
 								<td>{!! $v->action_buttons !!}</td>
 							</tr>
 							<div class="modal fade" id="edit-{{ $v->id }}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">

@@ -14,5 +14,11 @@ interface ProjectsRepositoryContract
      * @param string $sort
      * @return mixed
      */
-    public function getUsersPaginated($per_page, $order_by = 'id', $sort = 'asc');
+    public function getPaginated($per_page, $order_by = 'id', $sort = 'asc');
+
+    public function getRegions();
+    public function getIndustries();
+    public function getQuotas();
+
+    public function created($input);
 }

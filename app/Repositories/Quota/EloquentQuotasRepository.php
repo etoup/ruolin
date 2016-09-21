@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Repositories\Industry;
+namespace App\Repositories\Quota;
 
 use App\Exceptions\GeneralException;
-use App\Models\Industries;
+use App\Models\Quotas;
 use Carbon\Carbon;
 
 /**
  * Class EloquentUsersRepository
  * @package App\Repositories\User
  */
-class EloquentIndustriesRepository implements IndustriesRepositoryContract
+class EloquentQuotasRepository implements QuotasRepositoryContract
 {
 
     /**
@@ -20,17 +20,17 @@ class EloquentIndustriesRepository implements IndustriesRepositoryContract
      * @return mixed
      */
     public function getPaginated($per_page,  $order_by = 'id', $sort = 'asc'){
-        return Industries::orderBy($order_by, $sort)
+        return Quotas::orderBy($order_by, $sort)
             ->paginate($per_page);
     }
 
     public function getSearchPaginated($input, $per_page, $roles = 10, $order_by = 'id', $sort = 'asc'){
-        $builder = Industries::orderBy($order_by, $sort);
+        $builder = Quotas::orderBy($order_by, $sort);
 
         if(count($input)){
             $fields_search = [
                 'name'  => [
-                    'label' => '行业名称',
+                    'label' => '额度区间',
                     'tags'  => "name like CONCAT('%', ?, '%')"
                 ]
             ];
@@ -68,7 +68,7 @@ class EloquentIndustriesRepository implements IndustriesRepositoryContract
      * @return mixed
      */
     public function created($input){
-        return Industries::insert(['name'=>$input['name'],'sort'=>$input['sort'],'created_at'=>Carbon::now()]);
+        return Quotas::insert(['name'=>$input['name'],'sort'=>$input['sort'],'created_at'=>Carbon::now()]);
     }
 
     /**
@@ -79,32 +79,32 @@ class EloquentIndustriesRepository implements IndustriesRepositoryContract
      */
     public function findOrThrowException($id, $withRoles = false){
         if ($withRoles) {
-            $industries = Industries::with('roles')->withTrashed()->find($id);
+            $quotas = Quotas::with('roles')->withTrashed()->find($id);
         } else {
-            $industries = Industries::withTrashed()->find($id);
+            $quotas = Quotas::withTrashed()->find($id);
         }
 
-        if (!is_null($industries)) {
-            return $industries;
+        if (!is_null($quotas)) {
+            return $quotas;
         }
 
         throw new GeneralException('没有找到数据');
     }
 
     public function store($input){
-        $industry = $this->findOrThrowException($input['id']);
+        $quota = $this->findOrThrowException($input['id']);
 
-        $industry->name = $input['name'];
-        $industry->sort = $input['sort'];
+        $quota->name = $input['name'];
+        $quota->sort = $input['sort'];
 
-        $industry->save();
+        $quota->save();
 
         return true;
     }
 
     public function destroy($id){
-        $industry = $this->findOrThrowException($id);
-        if($industry->delete()){
+        $quota = $this->findOrThrowException($id);
+        if($quota->delete()){
             return true;
         }
 

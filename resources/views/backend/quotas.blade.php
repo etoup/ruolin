@@ -29,7 +29,7 @@
 		<div class="box-footer">
 			<div class="row">
 				<div class="col-lg-4 col-xs-4">
-					{!! Form::open(['route' => 'backend.industries.search','role' => 'form']) !!}
+					{!! Form::open(['route' => 'backend.quotas.search','role' => 'form']) !!}
 					<div class="input-group">
 						{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => '填写额度']) !!}
                           <span class="input-group-btn">
@@ -46,7 +46,7 @@
 		<ul class="nav nav-tabs">
 			<li class="active"><a href="#tab_1" data-toggle="tab">额度列表</a></li>
 			<li class="pull-right" data-toggle="tooltip" title="" data-original-title="新增额度">
-				<a href="{{ route('backend.industries.create') }}" data-toggle="modal" data-target="#create" class="text-muted"><i class="fa fa-plus"></i></a>
+				<a href="{{ route('backend.quotas.create') }}" data-toggle="modal" data-target="#create" class="text-muted"><i class="fa fa-plus"></i></a>
 			</li>
 			<div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
 				<div class="modal-dialog modal-sm">

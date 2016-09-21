@@ -33,6 +33,7 @@ class CreateProjectsTable extends Migration
             $table->string('policy',100);//招商政策
             $table->string('describe');//品牌描述
             $table->tinyInteger('types',false,true);//类型
+            $table->tinyInteger('status')->default(0);//类型
             $table->smallInteger('sort',false,true)->default(0);//排序
             $table->timestamps();
             $table->softDeletes();
