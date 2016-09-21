@@ -18,50 +18,6 @@
 		成功消息提示
 	</div>--}}
 	<div class="box">
-		<div class="box-header with-border">
-			<h3 class="box-title">搜索</h3>
-
-			<div class="box-tools">
-				<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-				</button>
-			</div>
-		</div>
-		{!! Form::open(['role' => 'form']) !!}
-		<div class="box-body">
-			<div class="row">
-				<div class="col-lg-4 col-xs-4">
-					<div class="form-group">
-						{!! Form::label('title', '商品名称') !!}
-						{!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => '填写商品名称']) !!}
-					</div>
-				</div>
-
-				<div class="col-lg-4 col-xs-4">
-					<div class="form-group">
-						{!! Form::label('date', '发布时间') !!}
-
-						<div class="input-group">
-							<div class="input-group-addon">
-								<i class="fa fa-calendar"></i>
-							</div>
-							<input type="text" class="form-control pull-right" id="reservation">
-						</div>
-						<!-- /.input group -->
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- /.box-body -->
-		<div class="box-footer">
-			<button type="button" class="btn btn-sm btn-success pull-right" style="margin-left: 5px;">
-				<i class="fa fa-download"></i> 导出
-			</button>
-			<button type="button" class="btn btn-sm btn-primary pull-right" style="margin-left: 5px;">
-				<i class="fa fa-search"></i> 搜索
-			</button>
-		</div>
-		{!! Form::close() !!}
-	</div>
 	<div class="nav-tabs-custom">
 		<ul class="nav nav-tabs">
 			<li class="active"><a href="#tab_1" data-toggle="tab">分类列表</a></li>
@@ -71,21 +27,68 @@
 			<div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
 				<div class="modal-dialog">
 					<div class="modal-content">
+					<!--增加分类开始-->
+						{!! Form::open(['route' => 'backend.shows.addCate', 'role' => 'form']) !!}
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-lg-6 col-xs-6">
+									<div class="form-group">
+										{!! Form::label('title', '分类名称') !!}
+										{!! Form::text('title', '', ['class' => 'form-control', 'placeholder' => '填写分类名称']) !!}
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-6 col-xs-6">
+									<div class="form-group">
+										{!! Form::label('types', '分类编号') !!}
+										{!! Form::text('types', '', ['class' => 'form-control', 'placeholder' => '填写1-100']) !!}
+									</div>
+								</div>
 
+								<div class="col-lg-6 col-xs-6">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-6 col-xs-6">
+									<div class="form-group">
+										{!! Form::label('sort', '排序') !!}
+										{!! Form::text('sort', '', ['class' => 'form-control', 'placeholder' => '排序1-255']) !!}
+									</div>
+								</div>
+
+								<div class="col-lg-6 col-xs-6">
+								</div>
+							</div>
+
+
+							<div class="row">
+								<div class="col-lg-12 col-xs-12">
+									<p style='width:auto; padding-left:0; float:left;'>
+										<script id="container" name="content" type="text/plain"></script>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal">关闭</button>
+							<button type="submit" class="btn btn-primary btn-flat">提交</button>
+						</div>
+						{!! Form::close() !!}
+					<!--增加分类结束-->
 					</div>
 				</div>
 			</div>
 		</ul>
 		<div class="tab-content">
 			<div class="tab-pane active" id="tab_1">
-
-
 				<table class="table table-striped table-bordered table-hover">
 					<thead>
 						<tr>
-							<th>路演标题</th>
-							<th>路演类型</th>
+							<th>类型</th>
+							<th>类型名称</th>
 							<th>排序</th>
+							<th>更新时间</th>
 							<th>操作</th>
 						</tr>
 					</thead>
@@ -93,9 +96,10 @@
 						@if (true)
 						@foreach($cate as $v)
 							<tr>
-								<td>{{$v->title}}</td>
 								<td>{{$v->types}}</td>
+								<td>{{$v->title}}</td>
 								<td>{{$v->sort}}</td>
+								<td>{{$v->updated_at}}</td>
 								<td>{!! $v->action_buttons !!}</td>
 							</tr>
 							<div class="modal fade" id="edit-{{ $v->id }}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">

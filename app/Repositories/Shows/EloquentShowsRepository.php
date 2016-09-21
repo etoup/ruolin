@@ -31,11 +31,7 @@ class EloquentShowsRepository implements ShowsRepositoryContract
             ->select('users.name','shows.*')
             ->paginate($per_page);
     }
-    //定义获取分类信息
-    public function getCategory($per_page,$order_by = 'id', $sort = 'asc'){
-      return Shows_categories::orderBy($order_by, $sort)
-          ->paginate($per_page);
-    }
+
 
     public function findOrThrowException($id){
             $show = Shows::withTrashed()->find($id);
@@ -46,6 +42,15 @@ class EloquentShowsRepository implements ShowsRepositoryContract
         throw new GeneralException('没有找到数据');
     }
 
+    //定义查找指定id的分类
+    public function findOne($id){
+        $showCate = Shows_categories::withTrashed()->find($id);
+        if (!is_null($showCate)) {
+            return $showCate;
+        }
+
+        throw new GeneralException('没有找到数据');
+    }
     public function created($input){
         $shows = new Shows;
         $shows->title = $input['title'];
@@ -57,7 +62,7 @@ class EloquentShowsRepository implements ShowsRepositoryContract
         $shows->users_id = Auth::user()->id;
         $shows->save();
     }
-    //定义修改方法
+    //定义路演修改方法
     public function edit($input){
         $shows = $this->findOrThrowException($input['id']);
         $shows->title = $input['title'];
@@ -71,10 +76,43 @@ class EloquentShowsRepository implements ShowsRepositoryContract
         return true;
 
     }
-    //定义删除方法
+    //定义路演删除方法
     public function del($id){
         $shows = $this->findOrThrowException($id);
         if($shows->delete()){
+            return true;
+        }
+
+        throw new GeneralException('删除失败');
+    }
+
+    //定义获取分类信息
+    public function getCategory($per_page,$order_by = 'sort', $sort = 'asc'){
+        return Shows_categories::orderBy($order_by, $sort)
+            ->paginate($per_page);
+    }
+    //定义添加分类方法
+    public function addCate($input){
+        $showsCate = new Shows_categories;
+        $showsCate->title = $input['title'];
+        $showsCate->types = $input['types'];
+        $showsCate->sort = $input['sort'];
+        $showsCate->save();
+    }
+
+    //定义修改分类方法
+    public function editCate($input){
+        $showsCate = $this->findOne($input['id']);
+        $showsCate->title = $input['title'];
+        $showsCate->types = $input['types'];
+        $showsCate->sort = $input['sort'];
+        $showsCate->save();
+        return true;
+    }
+    //定义删除路演分类方法
+    public function delCate($id){
+        $showsCate = $this->findOne($id);
+        if($showsCate->delete()){
             return true;
         }
 

@@ -18,7 +18,7 @@
 		<div  id="create" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
 			<div class="modal-dialog">
 				<div class="modal-content">
-					{!! Form::open(['route' => 'backend.shows.addOk', 'role' => 'form']) !!}
+					{!! Form::open(['route' => 'backend.shows.addOk', 'role' => 'form','enctype'=>'multipart/form-data']) !!}
 					<div class="modal-body">
 						<div class="row">
 							<div class="col-lg-6 col-xs-6">

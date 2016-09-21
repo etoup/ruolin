@@ -66,13 +66,28 @@ class ShowsController extends Controller
     }
     //路演分类
     public function categories(){
-        return view('backend.show.categories')->withCate($this->shows->getCategory(5));
+        return view('backend.show.categories')->withCate($this->shows->getCategory(10));
     }
 
     //新增路演分类
-    public function addCate(){
-        return view('backend.show.addCate');
+    public function addCate(Requests\ShowsAddCateRequest $request){
+        $this->shows->addCate($request->all());
+        return redirect()->route('backend.shows.categories')->withFlashSuccess('添加成功');
+
+    }
+    //定义分类修改
+    public function editCate($id){
+        return view('backend.show.editCate')->withInfo($this->shows->findOne($id));
     }
 
+    public function editCateOk(Requests\ShowsEditCateRequest $request){
+        $this->shows->editCate($request->all());
+        return redirect()->route('backend.shows.categories')->withFlashSuccess('修改成功');
+    }
 
+    //定义路演分类删除
+    public function delCate($id){
+        $this->shows->delCate($id);
+        return redirect()->back()->withFlashSuccess('删除成功');
+    }
 }

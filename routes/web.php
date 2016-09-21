@@ -27,9 +27,10 @@ Route::group(['namespace'=>'Backend','prefix'=>'backend','middleware'=>'auth'],f
 
     Route::get('/shows', 'ShowsController@index')->name('backend.shows');
     Route::get('/shows/add', 'ShowsController@add')->name('backend.shows.add');
-    Route::get('/shows/addCate', 'ShowsController@addCate')->name('backend.shows.addCate');
-    Route::get('/shows/editCate', 'ShowsController@editCate')->name('backend.shows.editCate');
-    Route::get('/shows/delCate', 'ShowsController@delCate')->name('backend.shows.delCate');
+    Route::post('/shows/addCate', 'ShowsController@addCate')->name('backend.shows.addCate');
+    Route::get('/shows/editCate/{id}', 'ShowsController@editCate')->name('backend.shows.editCate');
+    Route::post('/shows/editCateOk', 'ShowsController@editCateOk')->name('backend.shows.editCateOk');
+    Route::delete('/shows/delCate/{id}', 'ShowsController@delCate')->name('backend.shows.delCate');
     Route::post('/shows/addOk', 'ShowsController@addOk')->name('backend.shows.addOk');
     Route::get('/shows/categories', 'ShowsController@categories')->name('backend.shows.categories');
     Route::get('/shows/review', 'ShowsController@review')->name('backend.shows.review');
