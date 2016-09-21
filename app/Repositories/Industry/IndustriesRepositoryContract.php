@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Repositories\Region;
+namespace App\Repositories\Industry;
 
 /**
  * Interface UsersRepositoryContract
  * @package App\Repositories\User
  */
-interface RegionsRepositoryContract
+interface IndustriesRepositoryContract
 {
     /**
      * @param $per_page
@@ -14,7 +14,7 @@ interface RegionsRepositoryContract
      * @param string $sort
      * @return mixed
      */
-    public function getRegionsPaginated($per_page, $order_by = 'id', $sort = 'asc');
+    public function getPaginated($per_page, $order_by = 'id', $sort = 'asc');
 
     /**
      * @param $input
@@ -23,7 +23,7 @@ interface RegionsRepositoryContract
      * @param string $sort
      * @return mixed
      */
-    public function getRegionsSearchPaginated($input,$per_page, $order_by = 'id', $sort = 'asc');
+    public function getSearchPaginated($input,$per_page, $order_by = 'id', $sort = 'asc');
 
     /**
      * @param $input

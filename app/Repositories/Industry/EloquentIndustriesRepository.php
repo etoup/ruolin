@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Repositories\Region;
+namespace App\Repositories\Industry;
 
 use App\Exceptions\GeneralException;
-use App\Models\Regions;
+use App\Models\Industries;
 use Carbon\Carbon;
 
 /**
  * Class EloquentUsersRepository
  * @package App\Repositories\User
  */
-class EloquentRegionsRepository implements RegionsRepositoryContract
+class EloquentIndustriesRepository implements IndustriesRepositoryContract
 {
 
     /**
@@ -19,18 +19,18 @@ class EloquentRegionsRepository implements RegionsRepositoryContract
      * @param string $sort
      * @return mixed
      */
-    public function getRegionsPaginated($per_page,  $order_by = 'id', $sort = 'asc'){
-        return Regions::orderBy($order_by, $sort)
+    public function getPaginated($per_page,  $order_by = 'id', $sort = 'asc'){
+        return Industries::orderBy($order_by, $sort)
             ->paginate($per_page);
     }
 
-    public function getRegionsSearchPaginated($input, $per_page, $roles = 10, $order_by = 'id', $sort = 'asc'){
-        $builder = Regions::orderBy($order_by, $sort);
+    public function getSearchPaginated($input, $per_page, $roles = 10, $order_by = 'id', $sort = 'asc'){
+        $builder = Industries::orderBy($order_by, $sort);
 
         if(count($input)){
             $fields_search = [
                 'name'  => [
-                    'label' => '地区名称',
+                    'label' => '行业名称',
                     'tags'  => "name like CONCAT('%', ?, '%')"
                 ]
             ];
@@ -67,7 +67,7 @@ class EloquentRegionsRepository implements RegionsRepositoryContract
      * @return mixed
      */
     public function created($input){
-        return Regions::insert(['name'=>$input['name'],'sort'=>$input['sort'],'created_at'=>Carbon::now()]);
+        return Industries::insert(['name'=>$input['name'],'sort'=>$input['sort'],'created_at'=>Carbon::now()]);
     }
 
     /**
@@ -78,32 +78,32 @@ class EloquentRegionsRepository implements RegionsRepositoryContract
      */
     public function findOrThrowException($id, $withRoles = false){
         if ($withRoles) {
-            $regions = Regions::with('roles')->withTrashed()->find($id);
+            $industries = Industries::with('roles')->withTrashed()->find($id);
         } else {
-            $regions = Regions::withTrashed()->find($id);
+            $industries = Industries::withTrashed()->find($id);
         }
 
-        if (!is_null($regions)) {
-            return $regions;
+        if (!is_null($industries)) {
+            return $industries;
         }
 
         throw new GeneralException('没有找到数据');
     }
 
     public function store($input){
-        $region = $this->findOrThrowException($input['id']);
+        $industry = $this->findOrThrowException($input['id']);
 
-        $region->name = $input['name'];
-        $region->sort = $input['sort'];
+        $industry->name = $input['name'];
+        $industry->sort = $input['sort'];
 
-        $region->save();
+        $industry->save();
 
         return true;
     }
 
     public function destroy($id){
-        $region = $this->findOrThrowException($id);
-        if($region->delete()){
+        $industry = $this->findOrThrowException($id);
+        if($industry->delete()){
             return true;
         }
 

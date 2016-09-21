@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('htmlheader_title')
-	地区管理
+	行业管理
 @endsection
 @section('contentheader_title')
-	地区管理
+	行业管理
 @endsection
 @section('contentheader_description')
-	地区列表
+	行业列表
 @endsection
 
 
@@ -26,14 +26,17 @@
 				</button>
 			</div>
 		</div>
-		<div class="box-footer">
+		<div class="box-body">
 			<div class="row">
 				<div class="col-lg-4 col-xs-4">
-					{!! Form::open(['route' => 'backend.regions.search','role' => 'form']) !!}
+					{!! Form::open(['route' => 'backend.industries.search','role' => 'form']) !!}
 						<div class="input-group">
-							{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => '填写地区名称']) !!}
+							{!! Form::text('name', request('name', $default = null), ['class' => 'form-control', 'placeholder' => '填写行业名称']) !!}
                           <span class="input-group-btn">
                             <button type="submit" class="btn btn-warning btn-flat">搜索</button>
+                          </span>
+							<span class="input-group-btn">
+                            <a href="{{ route('backend.industries') }}" class="btn btn-danger btn-flat">取消搜索</a>
                           </span>
 						</div>
 					{!! Form::close() !!}
@@ -44,9 +47,9 @@
 	</div>
 	<div class="nav-tabs-custom">
 		<ul class="nav nav-tabs">
-			<li class="active"><a href="#tab_1" data-toggle="tab">地区列表</a></li>
-			<li class="pull-right" data-toggle="tooltip" title="" data-original-title="新增地区">
-				<a href="{{ route('backend.regions.create') }}" data-toggle="modal" data-target="#create" class="text-muted"><i class="fa fa-plus"></i></a>
+			<li class="active"><a href="#tab_1" data-toggle="tab">行业列表</a></li>
+			<li class="pull-right" data-toggle="tooltip" title="" data-original-title="新增行业">
+				<a href="{{ route('backend.industries.create') }}" data-toggle="modal" data-target="#create" class="text-muted"><i class="fa fa-plus"></i></a>
 			</li>
 			<div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
 				<div class="modal-dialog modal-sm">
@@ -64,7 +67,7 @@
 					<thead>
 						<tr>
 							<th>ID</th>
-							<th>地区名称</th>
+							<th>行业</th>
 							<th>排序</th>
 							<th>时间</th>
 							<th>操作</th>
@@ -81,7 +84,7 @@
 								<td>{!! $v->action_buttons !!}</td>
 							</tr>
 							<div class="modal fade" id="edit-{{ $v->id }}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-								<div class="modal-dialog modal-sm">
+								<div class="modal-dialog">
 									<div class="modal-content">
 
 									</div>
