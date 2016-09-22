@@ -29,11 +29,11 @@
 		<div class="box-footer">
 			<div class="row">
 				<div class="col-lg-4 col-xs-4">
-					{!! Form::open(['role' => 'form']) !!}
+					{!! Form::open(['route' => 'backend.regions.search','role' => 'form']) !!}
 						<div class="input-group">
-							{!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => '填写地区名称关键字']) !!}
+							{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => '填写地区名称']) !!}
                           <span class="input-group-btn">
-                            <button type="button" class="btn btn-warning btn-flat">搜索</button>
+                            <button type="submit" class="btn btn-warning btn-flat">搜索</button>
                           </span>
 						</div>
 					{!! Form::close() !!}
@@ -44,7 +44,7 @@
 	</div>
 	<div class="nav-tabs-custom">
 		<ul class="nav nav-tabs">
-			<li class="active"><a href="#tab_1" data-toggle="tab">项目列表</a></li>
+			<li class="active"><a href="#tab_1" data-toggle="tab">地区列表</a></li>
 			<li class="pull-right" data-toggle="tooltip" title="" data-original-title="新增地区">
 				<a href="{{ route('backend.regions.create') }}" data-toggle="modal" data-target="#create" class="text-muted"><i class="fa fa-plus"></i></a>
 			</li>
@@ -81,7 +81,7 @@
 								<td>{!! $v->action_buttons !!}</td>
 							</tr>
 							<div class="modal fade" id="edit-{{ $v->id }}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-								<div class="modal-dialog">
+								<div class="modal-dialog modal-sm">
 									<div class="modal-content">
 
 									</div>

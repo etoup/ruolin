@@ -16,6 +16,7 @@ class ComposerStaticInitc280e4c9a09ec592aa368a02abad4483
         'e7223560d890eab89cda23685e711e2c' => __DIR__ . '/..' . '/psy/psysh/src/Psy/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
+        'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         'c9b7496aa2e287ba00ff44d2d2a861b1' => __DIR__ . '/..' . '/hieu-le/active/src/helpers.php',
         'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
     );
@@ -60,6 +61,7 @@ class ComposerStaticInitc280e4c9a09ec592aa368a02abad4483
         'P' => 
         array (
             'Psy\\' => 4,
+            'Psr\\Http\\Message\\' => 17,
             'PhpParser\\' => 10,
         ),
         'M' => 
@@ -72,12 +74,17 @@ class ComposerStaticInitc280e4c9a09ec592aa368a02abad4483
         ),
         'I' => 
         array (
+            'Intervention\\Image\\' => 19,
             'Illuminate\\' => 11,
         ),
         'H' => 
         array (
             'HieuLe\\Active\\' => 14,
             'HieuLe\\ActiveTest\\' => 18,
+        ),
+        'G' => 
+        array (
+            'GuzzleHttp\\Psr7\\' => 16,
         ),
         'F' => 
         array (
@@ -196,6 +203,10 @@ class ComposerStaticInitc280e4c9a09ec592aa368a02abad4483
         array (
             0 => __DIR__ . '/..' . '/psy/psysh/src/Psy',
         ),
+        'Psr\\Http\\Message\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
+        ),
         'PhpParser\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
@@ -208,6 +219,10 @@ class ComposerStaticInitc280e4c9a09ec592aa368a02abad4483
         array (
             0 => __DIR__ . '/..' . '/league/flysystem/src',
         ),
+        'Intervention\\Image\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image',
+        ),
         'Illuminate\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate',
@@ -219,6 +234,10 @@ class ComposerStaticInitc280e4c9a09ec592aa368a02abad4483
         'HieuLe\\ActiveTest\\' => 
         array (
             0 => __DIR__ . '/..' . '/hieu-le/active/tests',
+        ),
+        'GuzzleHttp\\Psr7\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
         ),
         'Faker\\' => 
         array (
@@ -319,10 +338,12 @@ class ComposerStaticInitc280e4c9a09ec592aa368a02abad4483
     public static $classMap = array (
         'CreateArticlesCategoriesTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_17_165857_create_articles_categories_table.php',
         'CreateArticlesTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_17_165857_create_articles_table.php',
+        'CreateCochairmanTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_21_172744_create_cochairman_table.php',
         'CreateCollectionsTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_17_165844_create_collections_table.php',
         'CreateDirectorsTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_17_165923_create_directors_table.php',
         'CreateIndustriesTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_17_165629_create_industries_table.php',
         'CreateLogsTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_17_170150_create_logs_table.php',
+        'CreateMembersTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_20_201004_create_members_table.php',
         'CreateMessagesTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_17_165831_create_messages_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateProjectsArticlesTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_17_165759_create_projects_articles_table.php',
@@ -332,7 +353,7 @@ class ComposerStaticInitc280e4c9a09ec592aa368a02abad4483
         'CreateRegionsTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_17_162056_create_regions_table.php',
         'CreateResourcesTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_17_165815_create_resources_table.php',
         'CreateShowsCategoriesTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_17_165911_create_shows_categories_table.php',
-        'CreateShowsTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_17_165911_create_shows_table.php',
+        'CreateShowsTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_17_165914_create_shows_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',

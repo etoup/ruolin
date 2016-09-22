@@ -24,8 +24,8 @@ class CreateShowsTable extends Migration
             $table->string('title',100);
             $table->text('content');
             $table->tinyInteger('status')->default(0);
-            $table->smallInteger('hits');
-            $table->smallInteger('likes');
+            $table->integer('hits')->default(0);
+            $table->integer('likes')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

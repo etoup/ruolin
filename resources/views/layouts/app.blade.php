@@ -8,7 +8,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 @section('htmlheader')
     @include('layouts.partials.htmlheader')
 @show
-
+@yield('after-styles-end')
 <!--
 BODY TAG OPTIONS:
 =================
@@ -57,6 +57,7 @@ desired effect
 @section('scripts')
     @include('layouts.partials.scripts')
 @show
+@yield('after-scripts-end')
 
 </body>
 </html>

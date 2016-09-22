@@ -19,6 +19,7 @@ trait UsersAttribute
     {
         if (!Auth::guest()) {
             return '<a href="' . route('backend.users.edit', $this->id) . '" class="btn btn-xs btn-primary" data-toggle="modal" data-target="#edit-'.$this->id.'"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="编辑"></i></a> ';
+            
         }
 
         return '';
@@ -44,7 +45,7 @@ trait UsersAttribute
     public function getActionButtonsAttribute()
     {
         return $this->getEditButtonAttribute().
-            $this->getDelButtonAttribute();
+                 $this->getDelButtonAttribute();
     }
 
 

@@ -31,7 +31,7 @@ class RegionsCreatedRequest extends FormRequest
     public function attributes()
     {
         return [
-            'name' => '昵称'
+            'name' => '地区名称'
         ];
     }
 }

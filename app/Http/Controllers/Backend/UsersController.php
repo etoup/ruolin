@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Backend;
-
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UsersSearchRequest;
 use App\Http\Requests\UsersStoreRequest;
@@ -27,10 +26,13 @@ class UsersController extends Controller
      */
     public function index()
     {
+     /*   echo "<pre>";
+        print_r($this->users->getUsersPaginated(10,10));exit;*/
         return view('backend.users')->withData($this->users->getUsersPaginated(10,10));
     }
 
     /**
+     * @param UsersSearchRequest $request
      * @return mixed
      */
     public function search(UsersSearchRequest $request)
