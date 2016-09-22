@@ -33,11 +33,11 @@ Route::group(['namespace'=>'Backend','prefix'=>'backend','middleware'=>'auth'],f
     Route::delete('/shows/delCate/{id}', 'ShowsController@delCate')->name('backend.shows.delCate');
     Route::post('/shows/addOk', 'ShowsController@addOk')->name('backend.shows.addOk');
     Route::get('/shows/categories', 'ShowsController@categories')->name('backend.shows.categories');
-    Route::get('/shows/review', 'ShowsController@review')->name('backend.shows.review');
     Route::get('/shows/addShows', 'ShowsController@addShows')->name('backend.shows.addShows');
     Route::get('/shows/edit/{id}', 'ShowsController@edit')->name('backend.shows.edit');
     Route::post('/shows/editOk', 'ShowsController@editOk')->name('backend.shows.editOk');
     Route::delete('/shows/del/{id}', 'ShowsController@del')->name('backend.shows.del');
+    Route::get('/shows/review/{id}', 'ShowsController@review')->name('backend.shows.review');
 
     Route::get('/projects', 'ProjectsController@index')->name('backend.projects');
     Route::get('/regions', 'RegionsController@index')->name('backend.regions');

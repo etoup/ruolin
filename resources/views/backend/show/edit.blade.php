@@ -49,11 +49,25 @@
                                 <div class="col-lg-6 col-xs-6">
                                 </div>
                             </div>
+
+                            <div class="row">
+                                <div class="col-lg-6 col-xs-6">
+                                    <div class="form-group">
+                                        {!! Form::label('status', '审核状态') !!}
+                                        {!! Form::text('status', $info->status, ['class' => 'form-control', 'placeholder' => '0为未通过']) !!}
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-xs-6">
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="col-lg-6 col-xs-6">
                                     <div class="form-group">
                                         {!! Form::label('shows_categories_id', '所属分类') !!}
-                                        {!! Form::text('shows_categories_id', $info->shows_categories_id, ['class' => 'form-control', 'placeholder' => '请选择']) !!}
+
+                                        {!! Form::select('shows_categories_id',
+                                        $cate,$info->id
+                                        , ['placeholder' => '所属分类']) !!}
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-xs-6">
@@ -69,7 +83,6 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal">关闭</button>
                             <button type="submit" class="btn btn-primary btn-flat">提交</button>
                             {!! Form::hidden('id', $info->id) !!}
                             {!! Form::hidden('original', $info->thumbnail) !!}

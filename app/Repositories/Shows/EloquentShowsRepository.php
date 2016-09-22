@@ -4,7 +4,8 @@ namespace App\Repositories\Shows;
 use App\Models\Shows;
 use App\Models\Shows_categories;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
+
+
 
 /**
  * Class EloquentShowsRepository
@@ -51,13 +52,38 @@ class EloquentShowsRepository implements ShowsRepositoryContract
 
         throw new GeneralException('没有找到数据');
     }
+
+    //获取分类名称
+    public function getCate(){
+        return Shows_categories::get();
+    }
+
+    //添加路演
     public function created($input){
         $shows = new Shows;
+        $imgUrl='';
+//        dd($input['thumbnail']);
+        $file=$input['thumbnail'];
+//       dd($file);
+            if($file ->isValid()){
+                //判断上传文件是否有效
+                $images=array(                                                                          //文件格式限制
+                    'jpg','png','jpeg','gif','bmp'
+                );
+                if(in_array($file->getClientOriginalExtension(),$images )) {           //判断文件后缀是否符合限制
+                    // $size=8*1024*1024;
+                    // if($file->getClientSize()<$size){
+                    $imgName = time().substr(uniqid(), -6) . "." . $file->getClientOriginalExtension();
+                    //文件重命名
+                    $imgUrl = $file->move('img/upload/', $imgName)->getPathname();     //保存文件，并获取url
+                }
+            }
+
         $shows->title = $input['title'];
         $shows->shows_categories_id = $input['shows_categories_id'];
-        $shows->thumbnail = $input['thumbnail'];
-        $shows->video = 111;
-        $shows->original = 1112;
+        $shows->thumbnail = '/'.$imgUrl;
+        $shows->video = $input['video'];
+        $shows->original = '/'.$imgUrl;
         $shows->content = $input['content'];
         $shows->users_id = Auth::user()->id;
         $shows->save();
@@ -69,6 +95,7 @@ class EloquentShowsRepository implements ShowsRepositoryContract
         $shows->thumbnail = $input['thumbnail'];
         $shows->shows_categories_id = $input['shows_categories_id'];
         $shows->video = $input['video'];
+        $shows->status = $input['status'];
         $shows->original = $input['original'];
         $shows->content = $input['content'];
         $shows->users_id = Auth::user()->id;

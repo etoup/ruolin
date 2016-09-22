@@ -17,6 +17,9 @@ interface ShowsRepositoryContract
      */
     public function getShowsPaginated($per_page, $order_by = 'id', $sort = 'asc');
     public function getCategory($per_page,$order_by = 'sort', $sort = 'asc');
+    //定义获取分类信息方法
+    public  function getCate();
+
     public function findOrThrowException($id);
     public function created($input);
     public function edit($input);
