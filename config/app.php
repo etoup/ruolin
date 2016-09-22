@@ -186,6 +186,7 @@ return [
         App\Providers\ProjectsServiceProvider::class,
         App\Providers\RegionsServiceProvider::class,
         App\Providers\IndustriesServiceProvider::class,
+        App\Providers\QuotasServiceProvider::class,
 
 
         /*

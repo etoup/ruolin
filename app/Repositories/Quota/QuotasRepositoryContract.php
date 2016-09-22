@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Repositories\Project;
+namespace App\Repositories\Quota;
 
 /**
  * Interface UsersRepositoryContract
  * @package App\Repositories\User
  */
-interface ProjectsRepositoryContract
+interface QuotasRepositoryContract
 {
     /**
      * @param $per_page
@@ -15,6 +15,7 @@ interface ProjectsRepositoryContract
      * @return mixed
      */
     public function getPaginated($per_page, $order_by = 'id', $sort = 'asc');
+
     /**
      * @param $input
      * @param $per_page
@@ -24,10 +25,10 @@ interface ProjectsRepositoryContract
      */
     public function getSearchPaginated($input,$per_page, $order_by = 'id', $sort = 'asc');
 
-    public function getRegions();
-    public function getIndustries();
-    public function getQuotas();
-
+    /**
+     * @param $input
+     * @return mixed
+     */
     public function created($input);
 
     /**
@@ -37,6 +38,10 @@ interface ProjectsRepositoryContract
      */
     public function findOrThrowException($id, $withRoles = false);
 
+    /**
+     * @param $input
+     * @return mixed
+     */
     public function store($input);
 
     /**

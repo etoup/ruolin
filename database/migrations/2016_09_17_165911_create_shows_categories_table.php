@@ -17,7 +17,7 @@ class CreateShowsCategoriesTable extends Migration
         Schema::create(self::TBL_NAME, function (Blueprint $table) {
             $table->increments('id');
             $table->string('title',40);
-            $table->tinyInteger('types',false,true);
+            $table->tinyInteger('types',false,true)->default(0);
             $table->tinyInteger('sort',false,true)->default(255);
             $table->timestamps();
             $table->softDeletes();
