@@ -42,7 +42,11 @@
 							<div class="col-lg-6 col-xs-6">
 								<div class="form-group">
 									{!! Form::label('viedo', '视频地址') !!}
+<<<<<<< HEAD
 									{!! Form::text('viedo', '', ['class' => 'form-control', 'placeholder' => '输入视频地址']) !!}
+=======
+									{!! Form::text('video', '', ['class' => 'form-control', 'placeholder' => '输入视频地址']) !!}
+>>>>>>> 734652a658a650655775a7f6237beec51485af0a
 								</div>
 							</div>
 							<div class="col-lg-6 col-xs-6">
@@ -52,7 +56,15 @@
 							<div class="col-lg-6 col-xs-6">
 								<div class="form-group">
 									{!! Form::label('shows_categories_id', '所属分类') !!}
+<<<<<<< HEAD
 									{!! Form::text('shows_categories_id', '', ['class' => 'form-control', 'placeholder' => '请选择']) !!}
+=======
+
+									{!! Form::select('shows_categories_id',
+									$info
+									, null, ['placeholder' => '所属分类']) !!}
+
+>>>>>>> 734652a658a650655775a7f6237beec51485af0a
 								</div>
 							</div>
 							<div class="col-lg-6 col-xs-6">
@@ -68,7 +80,11 @@
 						</div>
 					</div>
 					<div class="modal-footer">
+<<<<<<< HEAD
 						<button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal">关闭</button>
+=======
+
+>>>>>>> 734652a658a650655775a7f6237beec51485af0a
 						<button type="submit" class="btn btn-primary btn-flat">提交</button>
 					</div>
 					{!! Form::close() !!}

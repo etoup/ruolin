@@ -439,7 +439,11 @@ class ComposerStaticInitc280e4c9a09ec592aa368a02abad4483
         'CreateRegionsTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_17_162056_create_regions_table.php',
         'CreateResourcesTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_17_165815_create_resources_table.php',
         'CreateShowsCategoriesTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_17_165911_create_shows_categories_table.php',
+<<<<<<< HEAD
         'CreateShowsTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_17_165914_create_shows_table.php',
+=======
+        'CreateShowsTable' => __DIR__ . '/../..',
+>>>>>>> 734652a658a650655775a7f6237beec51485af0a
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'Creativeorange\\Gravatar\\Exceptions\\InvalidEmailException' => __DIR__ . '/..' . '/creativeorange/gravatar/src/Exceptions/InvalidEmailException.php',
         'Creativeorange\\Gravatar\\Facades\\Gravatar' => __DIR__ . '/..' . '/creativeorange/gravatar/src/Facades/Gravatar.php',

@@ -37,8 +37,22 @@ class ShowsController extends Controller
     //新增路演
     public function add()
     {
+<<<<<<< HEAD
 //        dd(Auth ::user());
        return view('backend.show.add');
+=======
+        $info = $this->shows->getCate();
+        $infoArr = [];
+        if(count($info)){
+            foreach ($info as $v){
+                $infoArr[$v->id] = $v->title;
+            }
+        }
+
+       /* echo "<pre/>";
+      print_r($this->shows->getCate());exit;*/
+       return view('backend.show.add')->withInfo($infoArr);;
+>>>>>>> 734652a658a650655775a7f6237beec51485af0a
     }
 
     public function addOk(Requests\ShowsAddRequest $request){
@@ -48,7 +62,21 @@ class ShowsController extends Controller
 
     //路演修改
     public function edit($id){
+<<<<<<< HEAD
         return view('backend.show.edit')->withInfo($this->shows->findOrThrowException($id));
+=======
+        $infoAll = $this->shows->getCate();
+
+        $infoArr = [];
+        if(count($infoAll)){
+            foreach ($infoAll as $v){
+                $infoArr[$v->id] = $v->title;
+            }
+        }
+        /*echo "<pre/>";
+        print_r($infoArr);exit;*/
+        return view('backend.show.edit')->withCate($infoArr)->withInfo($this->shows->findOrThrowException($id));
+>>>>>>> 734652a658a650655775a7f6237beec51485af0a
     }
 
     //修改路演成功
@@ -90,4 +118,14 @@ class ShowsController extends Controller
         $this->shows->delCate($id);
         return redirect()->back()->withFlashSuccess('删除成功');
     }
+<<<<<<< HEAD
+=======
+
+    //定义路演审核方法
+    public function review($id){
+        
+    }
+
+
+>>>>>>> 734652a658a650655775a7f6237beec51485af0a
 }

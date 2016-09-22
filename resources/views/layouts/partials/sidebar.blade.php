@@ -93,9 +93,15 @@
             <li class="header">快捷导航</li>
             <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>项目审核</span></a></li>
 
+<<<<<<< HEAD
             <li ><a href="{{ route('backend.shows.review') }}"><i class="fa fa-circle-o text-yellow"></i> <span>路演审核</span></a></li>
 
             <li><a href="{{ route('backend.Cochairman.review') }}"><i class="fa fa-circle-o text-aqua"></i>联董审核</a></li>
+=======
+            <li ><a href="{{ route('backend.shows') }}"><i class="fa fa-circle-o text-yellow"></i> <span>路演审核</span></a></li>
+
+            <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>联董审核</span></a></li>
+>>>>>>> 734652a658a650655775a7f6237beec51485af0a
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->

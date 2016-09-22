@@ -4,8 +4,13 @@ namespace App\Repositories\Shows;
 use App\Models\Shows;
 use App\Models\Shows_categories;
 use Illuminate\Support\Facades\Auth;
+<<<<<<< HEAD
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
+=======
+
+
+>>>>>>> 734652a658a650655775a7f6237beec51485af0a
 
 /**
  * Class EloquentShowsRepository
@@ -52,10 +57,20 @@ class EloquentShowsRepository implements ShowsRepositoryContract
 
         throw new GeneralException('没有找到数据');
     }
+<<<<<<< HEAD
+=======
+
+    //获取分类名称
+    public function getCate(){
+        return Shows_categories::get();
+    }
+
+>>>>>>> 734652a658a650655775a7f6237beec51485af0a
     //添加路演
     public function created($input){
         $shows = new Shows;
         $imgUrl='';
+<<<<<<< HEAD
    /*     echo '<pre/>';
         print_r($input['thumbnail']);
         exit;*/
@@ -63,11 +78,20 @@ class EloquentShowsRepository implements ShowsRepositoryContract
 
             if($file ->isValid()){               //判断上传文件是否有效
                 $images=array(                                                        //文件格式限制
+=======
+//        dd($input['thumbnail']);
+        $file=$input['thumbnail'];
+//       dd($file);
+            if($file ->isValid()){
+                //判断上传文件是否有效
+                $images=array(                                                                          //文件格式限制
+>>>>>>> 734652a658a650655775a7f6237beec51485af0a
                     'jpg','png','jpeg','gif','bmp'
                 );
                 if(in_array($file->getClientOriginalExtension(),$images )) {           //判断文件后缀是否符合限制
                     // $size=8*1024*1024;
                     // if($file->getClientSize()<$size){
+<<<<<<< HEAD
                     $imgName = time() . substr(uniqid(), -6) . "." . $file->getClientOriginalExtension();         //文件重命名
 
                     $imgUrl = $file->move('img\user', $imgName)->getPathname();     //保存文件，并获取url
@@ -79,6 +103,19 @@ class EloquentShowsRepository implements ShowsRepositoryContract
         $shows->thumbnail = $imgUrl;
         $shows->video = 111;
         $shows->original = 1112;
+=======
+                    $imgName = time().substr(uniqid(), -6) . "." . $file->getClientOriginalExtension();
+                    //文件重命名
+                    $imgUrl = $file->move('img/upload/', $imgName)->getPathname();     //保存文件，并获取url
+                }
+            }
+
+        $shows->title = $input['title'];
+        $shows->shows_categories_id = $input['shows_categories_id'];
+        $shows->thumbnail = '/'.$imgUrl;
+        $shows->video = $input['video'];
+        $shows->original = '/'.$imgUrl;
+>>>>>>> 734652a658a650655775a7f6237beec51485af0a
         $shows->content = $input['content'];
         $shows->users_id = Auth::user()->id;
         $shows->save();
@@ -90,6 +127,10 @@ class EloquentShowsRepository implements ShowsRepositoryContract
         $shows->thumbnail = $input['thumbnail'];
         $shows->shows_categories_id = $input['shows_categories_id'];
         $shows->video = $input['video'];
+<<<<<<< HEAD
+=======
+        $shows->status = $input['status'];
+>>>>>>> 734652a658a650655775a7f6237beec51485af0a
         $shows->original = $input['original'];
         $shows->content = $input['content'];
         $shows->users_id = Auth::user()->id;

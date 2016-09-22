@@ -181,12 +181,16 @@ return [
 
         App\Providers\ShowsServiceProvider::class,
 
+<<<<<<< HEAD
         App\Providers\CochairmanServiceProvider::class,
 
+=======
+>>>>>>> 734652a658a650655775a7f6237beec51485af0a
         App\Providers\ProjectsServiceProvider::class,
         App\Providers\RegionsServiceProvider::class,
         App\Providers\IndustriesServiceProvider::class,
         App\Providers\QuotasServiceProvider::class,
+
 
 
         /*

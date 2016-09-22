@@ -25,6 +25,7 @@
 			</div>
 		</div>
 		{!! Form::open(['role' => 'form']) !!}
+<<<<<<< HEAD
 		<div class="box-body">
 			<div class="row">
 				<div class="col-lg-4 col-xs-4">
@@ -45,6 +46,14 @@
 							<input type="text" class="form-control pull-right" id="reservation">
 						</div>
 						<!-- /.input group -->
+=======
+		<div class="box-body" >
+			<div class="row">
+				<div class="col-lg-4 col-xs-4">
+					<div class="form-group">
+						{!! Form::label('title', '路演标题') !!}
+						{!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => '填写路演标题']) !!}
+>>>>>>> 734652a658a650655775a7f6237beec51485af0a
 					</div>
 				</div>
 			</div>
@@ -52,7 +61,11 @@
 		<!-- /.box-body -->
 		<div class="box-footer">
 			<button type="button" class="btn btn-sm btn-success pull-right" style="margin-left: 5px;">
+<<<<<<< HEAD
 				<i class="fa fa-download"></i> 导出
+=======
+				<i class="fa fa-download"></i> 重置
+>>>>>>> 734652a658a650655775a7f6237beec51485af0a
 			</button>
 			<button type="button" class="btn btn-sm btn-primary pull-right" style="margin-left: 5px;">
 				<i class="fa fa-search"></i> 搜索
@@ -90,7 +103,11 @@
 						</tr>
 					</thead>
 					<tbody>
+<<<<<<< HEAD
 						@if (true)
+=======
+						@if ($shows->count())
+>>>>>>> 734652a658a650655775a7f6237beec51485af0a
 							@foreach($shows as $v)
 							<tr>
 								<td>

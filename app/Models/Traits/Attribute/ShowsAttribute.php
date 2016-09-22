@@ -32,13 +32,32 @@ trait ShowsAttribute
 
         return '';
     }
+<<<<<<< HEAD
+=======
+
+    public function getReviewButtonAttribute()
+    {
+        if (!Auth::guest()) {
+            if(!$this->status){
+                return '<a href="' . route('backend.shows.review', $this->id) . '" class="btn btn-xs btn-danger" data-method="delete"><i class="fa fa-heart" data-toggle="tooltip" data-placement="top" title="审核"></i></a> ';
+            }
+        }
+
+        return '';
+    }
+>>>>>>> 734652a658a650655775a7f6237beec51485af0a
     /**
      * @return string
      */
     public function getActionButtonsAttribute()
     {
         return $this->getEditButtonAttribute().
+<<<<<<< HEAD
             $this->getDelButtonAttribute();
+=======
+            $this->getDelButtonAttribute().
+        $this->getReviewButtonAttribute();
+>>>>>>> 734652a658a650655775a7f6237beec51485af0a
     }
 
 

@@ -5,6 +5,22 @@
 
 3.php artisan key:generate
 
+<<<<<<< HEAD
+4.php artisan db:seed
+5.
+=======
 4.php artisan migrate
 
 5.php artisan db:seed.
+<<<<<<< HEAD
+=======
+
+4.php artisan migrate
+
+5.php artisan db:seed
+
+
+>>>>>>> b68ab54a0dbf5793a333baa40c0d830e1d3e8eca
+>>>>>>> f3eebf8fa4beeec40ae771d1bab28e7e0720ef8c
+=======
+>>>>>>> 2aec690a33958ab141a1eb09144da793c7e140f1
