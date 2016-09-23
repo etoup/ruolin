@@ -424,10 +424,12 @@ class ComposerStaticInitc280e4c9a09ec592aa368a02abad4483
         'Collective\\Html\\HtmlServiceProvider' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlServiceProvider.php',
         'CreateArticlesCategoriesTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_17_165857_create_articles_categories_table.php',
         'CreateArticlesTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_17_165857_create_articles_table.php',
+        'CreateCochairmanTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_21_172744_create_cochairman_table.php',
         'CreateCollectionsTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_17_165844_create_collections_table.php',
         'CreateDirectorsTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_17_165923_create_directors_table.php',
         'CreateIndustriesTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_17_165629_create_industries_table.php',
         'CreateLogsTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_17_170150_create_logs_table.php',
+        'CreateMembersTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_20_201004_create_members_table.php',
         'CreateMessagesTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_17_165831_create_messages_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateProjectsArticlesTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_17_165759_create_projects_articles_table.php',
@@ -437,7 +439,11 @@ class ComposerStaticInitc280e4c9a09ec592aa368a02abad4483
         'CreateRegionsTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_17_162056_create_regions_table.php',
         'CreateResourcesTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_17_165815_create_resources_table.php',
         'CreateShowsCategoriesTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_17_165911_create_shows_categories_table.php',
-        'CreateShowsTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_17_165911_create_shows_table.php',
+<<<<<<< HEAD
+        'CreateShowsTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_17_165914_create_shows_table.php',
+=======
+        'CreateShowsTable' => __DIR__ . '/../..',
+>>>>>>> 734652a658a650655775a7f6237beec51485af0a
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'Creativeorange\\Gravatar\\Exceptions\\InvalidEmailException' => __DIR__ . '/..' . '/creativeorange/gravatar/src/Exceptions/InvalidEmailException.php',
         'Creativeorange\\Gravatar\\Facades\\Gravatar' => __DIR__ . '/..' . '/creativeorange/gravatar/src/Facades/Gravatar.php',

@@ -25,6 +25,44 @@ Route::group(['namespace'=>'Backend','prefix'=>'backend','middleware'=>'auth'],f
     Route::get('/users/edit/{id}', 'UsersController@edit')->name('backend.users.edit');
     Route::post('/users/store', 'UsersController@store')->name('backend.users.store');
     Route::delete('/users/destroy/{id}', 'UsersController@destroy')->name('backend.users.destroy');
+<<<<<<< HEAD
+    
+    
+=======
+
+>>>>>>> 734652a658a650655775a7f6237beec51485af0a
+    Route::get('/shows', 'ShowsController@index')->name('backend.shows');
+    Route::get('/shows/add', 'ShowsController@add')->name('backend.shows.add');
+    Route::post('/shows/addCate', 'ShowsController@addCate')->name('backend.shows.addCate');
+    Route::get('/shows/editCate/{id}', 'ShowsController@editCate')->name('backend.shows.editCate');
+    Route::post('/shows/editCateOk', 'ShowsController@editCateOk')->name('backend.shows.editCateOk');
+    Route::delete('/shows/delCate/{id}', 'ShowsController@delCate')->name('backend.shows.delCate');
+    Route::post('/shows/addOk', 'ShowsController@addOk')->name('backend.shows.addOk');
+    Route::get('/shows/categories', 'ShowsController@categories')->name('backend.shows.categories');
+<<<<<<< HEAD
+    Route::get('/shows/review', 'ShowsController@review')->name('backend.shows.review');
+=======
+>>>>>>> 734652a658a650655775a7f6237beec51485af0a
+    Route::get('/shows/addShows', 'ShowsController@addShows')->name('backend.shows.addShows');
+    Route::get('/shows/edit/{id}', 'ShowsController@edit')->name('backend.shows.edit');
+    Route::post('/shows/editOk', 'ShowsController@editOk')->name('backend.shows.editOk');
+    Route::delete('/shows/del/{id}', 'ShowsController@del')->name('backend.shows.del');
+<<<<<<< HEAD
+
+    //联董路由
+    Route::get('/Cochairman', 'CochairmanController@index')->name('backend.Cochairman');
+    Route::get('/Cochairman/add', 'CochairmanController@add')->name('backend.Cochairman.add');
+    Route::post('/Cochairman/addOk', 'CochairmanController@addOk')->name('backend.Cochairman.addOk');
+    Route::get('/Cochairman/review', 'CochairmanController@review')->name('backend.Cochairman.review');
+    Route::get('/Cochairman/reviewOk/id/{id}/review/{review}', 'CochairmanController@reviewOk')->name('backend.Cochairman.reviewOk');
+    Route::get('/Cochairman/addCochairman', 'CochairmanController@addCochairman')->name('backend.Cochairman.addCochairman');
+    Route::get('/Cochairman/edit/{id}', 'CochairmanController@edit')->name('backend.Cochairman.edit');
+    Route::post('/Cochairman/editOk', 'CochairmanController@editOk')->name('backend.Cochairman.editOk');
+    Route::delete('/Cochairman/del/{id}', 'CochairmanController@del')->name('backend.Cochairman.del');
+    Route::delete('/Cochairman/destroy/{id}', 'CochairmanController@destroy')->name('backend.Cochairman.destroy');
+=======
+    Route::get('/shows/review/{id}', 'ShowsController@review')->name('backend.shows.review');
+>>>>>>> 734652a658a650655775a7f6237beec51485af0a
 
     Route::get('/projects', 'ProjectsController@index')->name('backend.projects');
     Route::get('/projects/create','ProjectsController@create')->name('backend.projects.create');
@@ -58,4 +96,3 @@ Route::group(['namespace'=>'Backend','prefix'=>'backend','middleware'=>'auth'],f
     Route::post('/quotas/store', 'QuotasController@store')->name('backend.quotas.store');
     Route::post('/quotas/search', 'QuotasController@search')->name('backend.quotas.search');
 });
-

@@ -35,7 +35,7 @@ class EloquentIndustriesRepository implements IndustriesRepositoryContract
                 ]
             ];
             foreach($input as $field => $value){
-
+                
                 if (empty($value)) {
                     continue;
                 }
