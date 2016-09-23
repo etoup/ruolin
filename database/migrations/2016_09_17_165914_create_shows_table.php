@@ -34,6 +34,18 @@ class CreateShowsTable extends Migration
             $table->tinyInteger('status')->default(0);
             $table->integer('hits')->default(0);
             $table->integer('likes')->default(0);
+<<<<<<< HEAD
+=======
+=======
+<<<<<<< HEAD:database/migrations/2016_09_17_165914_create_shows_table.php
+            $table->integer('hits')->default(0);
+            $table->integer('likes')->default(0);
+=======
+            $table->smallInteger('hits');
+            $table->smallInteger('likes');
+>>>>>>> 2aec690a33958ab141a1eb09144da793c7e140f1:database/migrations/2016_09_17_165911_create_shows_table.php
+>>>>>>> 734652a658a650655775a7f6237beec51485af0a:database/migrations/2016_09_17_165914_create_shows_table.php
+>>>>>>> 7ce6ef822428d84d48187570a7a12cbc33aca576
             $table->timestamps();
             $table->softDeletes();
         });

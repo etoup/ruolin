@@ -25,6 +25,26 @@
 			</div>
 		</div>
 		{!! Form::open(['role' => 'form']) !!}
+		<div class="box-body">
+			<div class="row">
+				<div class="col-lg-4 col-xs-4">
+					<div class="form-group">
+						{!! Form::label('title', '商品名称') !!}
+						{!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => '填写商品名称']) !!}
+					</div>
+				</div>
+
+				<div class="col-lg-4 col-xs-4">
+					<div class="form-group">
+						{!! Form::label('date', '发布时间') !!}
+
+						<div class="input-group">
+							<div class="input-group-addon">
+								<i class="fa fa-calendar"></i>
+							</div>
+							<input type="text" class="form-control pull-right" id="reservation">
+						</div>
+						<!-- /.input group -->
 		<div class="box-body" >
 			<div class="row">
 				<div class="col-lg-4 col-xs-4">
@@ -39,6 +59,7 @@
 		<div class="box-footer">
 			<button type="button" class="btn btn-sm btn-success pull-right" style="margin-left: 5px;">
 				<i class="fa fa-download"></i> 重置
+
 			</button>
 			<button type="button" class="btn btn-sm btn-primary pull-right" style="margin-left: 5px;">
 				<i class="fa fa-search"></i> 搜索

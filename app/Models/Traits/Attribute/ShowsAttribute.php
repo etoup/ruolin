@@ -32,6 +32,8 @@ trait ShowsAttribute
 
         return '';
     }
+<<<<<<< HEAD
+=======
 
     public function getReviewButtonAttribute()
     {
@@ -43,13 +45,23 @@ trait ShowsAttribute
 
         return '';
     }
+>>>>>>> 734652a658a650655775a7f6237beec51485af0a
     /**
      * @return string
      */
     public function getActionButtonsAttribute()
     {
         return $this->getEditButtonAttribute().
+<<<<<<< HEAD
             $this->getDelButtonAttribute();
+=======
+<<<<<<< HEAD
+            $this->getDelButtonAttribute();
+=======
+            $this->getDelButtonAttribute().
+        $this->getReviewButtonAttribute();
+>>>>>>> 734652a658a650655775a7f6237beec51485af0a
+>>>>>>> 7ce6ef822428d84d48187570a7a12cbc33aca576
     }
 
 

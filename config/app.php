@@ -180,11 +180,15 @@ return [
         App\Providers\UsersServiceProvider::class,
 
         App\Providers\ShowsServiceProvider::class,
+        
+        App\Providers\CochairmanServiceProvider::class,
+
 
         App\Providers\ProjectsServiceProvider::class,
         App\Providers\RegionsServiceProvider::class,
         App\Providers\IndustriesServiceProvider::class,
         App\Providers\QuotasServiceProvider::class,
+
 
 
         /*

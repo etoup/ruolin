@@ -37,9 +37,16 @@ class ShowsController extends Controller
     //新增路演
     public function add()
     {
+<<<<<<< HEAD
         //获取项目
         $projects=$this->shows->getProject();
         //获取分类
+=======
+<<<<<<< HEAD
+//        dd(Auth ::user());
+       return view('backend.show.add');
+=======
+>>>>>>> 7ce6ef822428d84d48187570a7a12cbc33aca576
         $info = $this->shows->getCate();
         $infoArr = [];
         if(count($info)){
@@ -47,7 +54,15 @@ class ShowsController extends Controller
                 $infoArr[$v->id] = $v->title;
             }
         }
+<<<<<<< HEAD
        return view('backend.show.add')->withData($projects)->withInfo($infoArr);
+=======
+
+       /* echo "<pre/>";
+      print_r($this->shows->getCate());exit;*/
+       return view('backend.show.add')->withInfo($infoArr);;
+>>>>>>> 734652a658a650655775a7f6237beec51485af0a
+>>>>>>> 7ce6ef822428d84d48187570a7a12cbc33aca576
     }
 
     public function addOk(Requests\ShowsAddRequest $request){
@@ -58,6 +73,9 @@ class ShowsController extends Controller
 
     //路演修改
     public function edit($id){
+<<<<<<< HEAD
+        return view('backend.show.edit')->withInfo($this->shows->findOrThrowException($id));
+=======
         $infoAll = $this->shows->getCate();
         $projects=$this->shows->getProject();
         $infoArr = [];
@@ -68,7 +86,12 @@ class ShowsController extends Controller
         }
         /*echo "<pre/>";
         print_r($infoArr);exit;*/
+<<<<<<< HEAD
         return view('backend.show.edit')->withCate($infoArr)->withData($projects)->withInfo($this->shows->findOrThrowException($id));
+=======
+        return view('backend.show.edit')->withCate($infoArr)->withInfo($this->shows->findOrThrowException($id));
+>>>>>>> 734652a658a650655775a7f6237beec51485af0a
+>>>>>>> 7ce6ef822428d84d48187570a7a12cbc33aca576
     }
 
     //修改路演成功
@@ -111,6 +134,8 @@ class ShowsController extends Controller
         $this->shows->delCate($id);
         return redirect()->back()->withFlashSuccess('删除成功');
     }
+<<<<<<< HEAD
+=======
 
     //定义路演审核方法
     public function review($id){
@@ -118,4 +143,5 @@ class ShowsController extends Controller
     }
 
 
+>>>>>>> 734652a658a650655775a7f6237beec51485af0a
 }

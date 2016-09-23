@@ -71,13 +71,18 @@
 
                 </ul>
             </li>
-            <li class="treeview">
+
+            <li class="{{ active_class(if_uri_pattern(['backend/Cochairman','backend/Cochairman/review'])) }} treeview">
+
                 <a href="#"><i class='fa fa-sitemap'></i> <span>联董管理</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="#"><i class="fa fa-circle-o"></i> {{ trans('adminlte_lang::message.linklevel2') }}</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> {{ trans('adminlte_lang::message.linklevel2') }}</a></li>
+                    <li class="{{ active_class(if_uri(['backend/Cochairman'])) }}"><a href="{{ route('backend.Cochairman') }}"><i class="fa fa-circle-o"></i>联董列表</a></li>
+
+                    <li class="{{ active_class(if_uri(['backend/Cochairman/review'])) }}"><a href="{{ route('backend.Cochairman.review') }}"><i class="fa fa-circle-o"></i>联董审核</a></li>
+
                 </ul>
             </li>
+
             <li class="treeview">
                 <a href="#"><i class='fa fa-reorder'></i> <span>日志管理</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
@@ -88,9 +93,15 @@
             <li class="header">快捷导航</li>
             <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>项目审核</span></a></li>
 
+<<<<<<< HEAD
+            <li ><a href="{{ route('backend.shows.review') }}"><i class="fa fa-circle-o text-yellow"></i> <span>路演审核</span></a></li>
+
+            <li><a href="{{ route('backend.Cochairman.review') }}"><i class="fa fa-circle-o text-aqua"></i>联董审核</a></li>
+=======
             <li ><a href="{{ route('backend.shows') }}"><i class="fa fa-circle-o text-yellow"></i> <span>路演审核</span></a></li>
 
             <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>联董审核</span></a></li>
+>>>>>>> 734652a658a650655775a7f6237beec51485af0a
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->

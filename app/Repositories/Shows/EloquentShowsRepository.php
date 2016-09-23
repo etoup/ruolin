@@ -1,11 +1,12 @@
 <?php
-
 namespace App\Repositories\Shows;
 use App\Models\Projects;
 use App\Models\Shows;
 use App\Models\Shows_categories;
 use Illuminate\Support\Facades\Auth;
 use SebastianBergmann\CodeCoverage\Report\Xml\Project;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Http\Request;
 
 
 /**
@@ -49,7 +50,6 @@ class EloquentShowsRepository implements ShowsRepositoryContract
         if (!is_null($showCate)) {
             return $showCate;
         }
-
         throw new GeneralException('没有找到数据');
     }
 
@@ -62,23 +62,29 @@ class EloquentShowsRepository implements ShowsRepositoryContract
         return Shows_categories::get();
     }
 
+
     //添加路演
     public function created($input){
         $shows = new Shows;
         $imgUrl='';
-        if (isset($input['thumbnail'])){
-        $file=$input['thumbnail'];
-            if($file ->isValid()){
-                //判断上传文件是否有效
-                $images=array(                                                                          //文件格式限制
-                    'jpg','png','jpeg','gif','bmp'
-                );
-                if(in_array($file->getClientOriginalExtension(),$images )) {           //判断文件后缀是否符合限制
-                    // $size=8*1024*1024;
-                    // if($file->getClientSize()<$size){
-                    $imgName = time().substr(uniqid(), -6) . "." . $file->getClientOriginalExtension();
-                    //文件重命名
-                    $imgUrl = $file->move('img/upload/', $imgName)->getPathname();     //保存文件，并获取url
+
+        if (isset($input['thumbnail'])) {
+            if ($file = $input['thumbnail']) {
+
+                if ($file->isValid()) {               //判断上传文件是否有效
+                    //判断上传文件是否有效
+                    $images = array(                                                                          //文件格式限制
+
+                        'jpg', 'png', 'jpeg', 'gif', 'bmp'
+                    );
+                    if (in_array($file->getClientOriginalExtension(), $images)) {           //判断文件后缀是否符合限制
+                        // $size=8*1024*1024;
+                        // if($file->getClientSize()<$size){
+
+                        $imgName = time() . substr(uniqid(), -6) . "." . $file->getClientOriginalExtension();         //文件重命名
+
+                        $imgUrl = $file->move('img\user', $imgName)->getPathname();     //保存文件，并获取url
+                    }
                 }
             }
         }
@@ -103,6 +109,9 @@ class EloquentShowsRepository implements ShowsRepositoryContract
             $shows->title=$input['title'];
         }
         $shows->video = $input['video'];
+
+        $shows->original = '/'.$imgUrl;
+
         $shows->content = $input['content'];
         $shows->users_id = Auth::user()->id;
         $shows->save();
@@ -151,6 +160,7 @@ class EloquentShowsRepository implements ShowsRepositoryContract
         $shows->shows_categories_id = $input['shows_categories_id'];
         $shows->video = $input['video'];
         $shows->status = $input['status'];
+        $shows->original = $input['original'];
         $shows->content = $input['content'];
         $shows->users_id = Auth::user()->id;
         $shows->save();
