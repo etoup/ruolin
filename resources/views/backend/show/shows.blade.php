@@ -68,6 +68,8 @@
 
 							<th>缩略图</th>
 							<th>标题</th>
+							<th>预期目标</th>
+							<th>所属分类</th>
 							<th>点击量</th>
 							<th>点赞量</th>
 							<th>更新时间</th>
@@ -83,6 +85,8 @@
 								<img src="{{ $v->thumbnail }}" height="40" class="img-circle" alt="Shows Image" />
 								</td>
 								<td><?php echo $v->title ?></td>
+								<td><?php echo $v->purpose ?></td>
+								<td><?php echo $v->cate ?></td>
 								<td><?php echo $v->hits ?></td>
 								<td><?php echo $v->likes ?></td>
 								<td><?php echo $v->updated_at?></td>

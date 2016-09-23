@@ -93,7 +93,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						@if (true)
+						@if ($cate->count())
 						@foreach($cate as $v)
 							<tr>
 								<td>{{$v->types}}</td>

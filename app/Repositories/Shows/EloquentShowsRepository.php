@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Repositories\Shows;
+use App\Models\Projects;
 use App\Models\Shows;
 use App\Models\Shows_categories;
 use Illuminate\Support\Facades\Auth;
-
+use SebastianBergmann\CodeCoverage\Report\Xml\Project;
 
 
 /**
@@ -23,13 +24,13 @@ class EloquentShowsRepository implements ShowsRepositoryContract
      */
     public function getShowsPaginated($per_page, $order_by = 'shows.id', $sort = 'asc')
     {
-
 /*        $sql = "select shows.*,users.name from shows  JOIN users on shows.users_id = users.id limit $per_page";
         return DB::select($sql);*/
         //获取路演shows表数据
         return Shows::leftJoin('users', 'shows.users_id', '=', 'users.id')
+            ->leftJoin('shows_categories','shows.shows_categories_id','=','shows_categories.id')
             ->orderBy($order_by, $sort)
-            ->select('users.name','shows.*')
+            ->select('users.name','shows_categories.title as cate','shows.*')
             ->paginate($per_page);
     }
 
@@ -39,7 +40,6 @@ class EloquentShowsRepository implements ShowsRepositoryContract
         if (!is_null($show)) {
             return $show;
         }
-
         throw new GeneralException('没有找到数据');
     }
 
@@ -53,6 +53,10 @@ class EloquentShowsRepository implements ShowsRepositoryContract
         throw new GeneralException('没有找到数据');
     }
 
+    //获取项目
+    public function getProject(){
+        return Projects::where('users_id','=',2)->pluck('business_name','id');
+    }
     //获取分类名称
     public function getCate(){
         return Shows_categories::get();
@@ -62,9 +66,55 @@ class EloquentShowsRepository implements ShowsRepositoryContract
     public function created($input){
         $shows = new Shows;
         $imgUrl='';
-//        dd($input['thumbnail']);
+        if (isset($input['thumbnail'])){
         $file=$input['thumbnail'];
-//       dd($file);
+            if($file ->isValid()){
+                //判断上传文件是否有效
+                $images=array(                                                                          //文件格式限制
+                    'jpg','png','jpeg','gif','bmp'
+                );
+                if(in_array($file->getClientOriginalExtension(),$images )) {           //判断文件后缀是否符合限制
+                    // $size=8*1024*1024;
+                    // if($file->getClientSize()<$size){
+                    $imgName = time().substr(uniqid(), -6) . "." . $file->getClientOriginalExtension();
+                    //文件重命名
+                    $imgUrl = $file->move('img/upload/', $imgName)->getPathname();     //保存文件，并获取url
+                }
+            }
+        }
+        $shows->shows_categories_id = $input['shows_categories_id'];
+        $shows->project_id = $input['project_id'];
+        $shows->purpose = $input['purpose'];
+        $shows->price = $input['price'];
+        $shows->program = $input['program'];
+        $shows->area = $input['area'];
+        $shows->times = $input['times'];
+        $shows->scale = $input['scale'];
+        $shows->guest = $input['guest'];
+        if ($imgUrl!=''){
+            $shows->thumbnail = '/'.$imgUrl;
+            $shows->original = '/'.$imgUrl;
+        }else{
+            $shows->thumbnail='/img/upload/pic.jpg';
+        }
+        if($input['title']==''){
+            $shows->title = '路演申请中，暂无标题';
+        }else{
+            $shows->title=$input['title'];
+        }
+        $shows->video = $input['video'];
+        $shows->content = $input['content'];
+        $shows->users_id = Auth::user()->id;
+        $shows->save();
+    }
+    //定义路演修改方法
+    public function edit($input){
+//        dd($input['thumbnail']);
+        //dd($input);
+        $shows = $this->findOrThrowException($input['id']);
+        $imgUrl='';
+        if (isset($input['thumbnail'])){
+            $file=$input['thumbnail'];
             if($file ->isValid()){
                 //判断上传文件是否有效
                 $images=array(                                                                          //文件格式限制
@@ -79,24 +129,28 @@ class EloquentShowsRepository implements ShowsRepositoryContract
                 }
             }
 
-        $shows->title = $input['title'];
-        $shows->shows_categories_id = $input['shows_categories_id'];
-        $shows->thumbnail = '/'.$imgUrl;
-        $shows->video = $input['video'];
-        $shows->original = '/'.$imgUrl;
-        $shows->content = $input['content'];
-        $shows->users_id = Auth::user()->id;
-        $shows->save();
-    }
-    //定义路演修改方法
-    public function edit($input){
-        $shows = $this->findOrThrowException($input['id']);
-        $shows->title = $input['title'];
-        $shows->thumbnail = $input['thumbnail'];
+                $shows->thumbnail = '/'.$imgUrl;
+                $shows->original = '/'.$imgUrl;
+
+        }else{
+            $shows->thumbnail=$input['thumbnail_url'];
+        }
+        $shows->project_id = $input['project_id'];
+        $shows->purpose = $input['purpose'];
+        $shows->price = $input['price'];
+        $shows->program = $input['program'];
+        $shows->area = $input['area'];
+        $shows->times = $input['times'];
+        $shows->scale = $input['scale'];
+        $shows->guest = $input['guest'];
+        if($input['title']==''){
+            $shows->title = '路演申请中，暂无标题';
+        }else{
+            $shows->title=$input['title'];
+        }
         $shows->shows_categories_id = $input['shows_categories_id'];
         $shows->video = $input['video'];
         $shows->status = $input['status'];
-        $shows->original = $input['original'];
         $shows->content = $input['content'];
         $shows->users_id = Auth::user()->id;
         $shows->save();

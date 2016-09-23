@@ -16,7 +16,7 @@ class CreateQuotasTable extends Migration
     {
         Schema::create(self::TBL_NAME, function (Blueprint $table) {
             $table->increments('id');
-            $table->string('interval',80)->unique();//额度区间
+            $table->string('name',80)->unique();//额度区间
             $table->smallInteger('sort',false,true)->default(0);//排序
             $table->timestamps();
             $table->softDeletes();

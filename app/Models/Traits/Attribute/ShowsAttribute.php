@@ -37,7 +37,7 @@ trait ShowsAttribute
     {
         if (!Auth::guest()) {
             if(!$this->status){
-                return '<a href="' . route('backend.shows.review', $this->id) . '" class="btn btn-xs btn-danger" data-method="delete"><i class="fa fa-heart" data-toggle="tooltip" data-placement="top" title="审核"></i></a> ';
+                return '<a href="' . route('backend.shows.review', $this->id) . '" class="btn btn-xs btn-danger" data-toggle="tooltip"><i class="fa fa-heart" data-toggle="tooltip" data-placement="top" title="审核"></i></a> ';
             }
         }
 
@@ -49,8 +49,7 @@ trait ShowsAttribute
     public function getActionButtonsAttribute()
     {
         return $this->getEditButtonAttribute().
-            $this->getDelButtonAttribute().
-        $this->getReviewButtonAttribute();
+            $this->getDelButtonAttribute();
     }
 
 

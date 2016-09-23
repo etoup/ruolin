@@ -27,6 +27,14 @@
 									{!! Form::text('title', '', ['class' => 'form-control', 'placeholder' => '填写标题']) !!}
 								</div>
 							</div>
+							<div class="col-lg-6 col-xs-6">
+								<div class="form-group">
+									{!! Form::label('project_id', '选择项目') !!}
+									{!! Form::select('project_id',
+									$data
+									,'', ['placeholder' => '选择项目','class' => 'form-control select2','style'=>'width: 100%']) !!}
+								</div>
+							</div>
 						</div>
 						<div class="row">
 							<div class="col-lg-6 col-xs-6">
@@ -36,6 +44,10 @@
 								</div>
 							</div>
 							<div class="col-lg-6 col-xs-6">
+								<div class="form-group">
+									{!! Form::label('purpose', '预期目标') !!}
+									{!! Form::text('purpose','', ['placeholder' => '预期目标','class' => 'form-control']) !!}
+								</div>
 							</div>
 						</div>
 						<div class="row">
@@ -46,23 +58,56 @@
 								</div>
 							</div>
 							<div class="col-lg-6 col-xs-6">
+								<div class="form-group">
+									{!! Form::label('price', '预期费用') !!}
+									{!! Form::text('price','', ['placeholder' => '预期费用','class' => 'form-control']) !!}
+								</div>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-lg-6 col-xs-6">
 								<div class="form-group">
 									{!! Form::label('shows_categories_id', '所属分类') !!}
-
 									{!! Form::select('shows_categories_id',
 									$info
-									, null, ['placeholder' => '所属分类']) !!}
-
+									, null, ['class' => 'form-control select2','style'=>'width: 100%','placeholder' => '所属分类']) !!}
 								</div>
 							</div>
 							<div class="col-lg-6 col-xs-6">
+								<div class="form-group">
+									{!! Form::label('program', '路演方案') !!}
+									{!! Form::text('program','', ['placeholder' => '路演方案','class' => 'form-control']) !!}
+								</div>
 							</div>
 						</div>
-
+						<div class="row">
+							<div class="col-lg-6 col-xs-6">
+								<div class="form-group">
+									{!! Form::label('times', '路演场次') !!}
+									{!! Form::text('times','', ['placeholder' => '路演场次','class' => 'form-control']) !!}
+								</div>
+							</div>
+							<div class="col-lg-6 col-xs-6">
+								<div class="form-group">
+									{!! Form::label('area', '路演区域') !!}
+									{!! Form::text('area','', ['placeholder' => '路演区域','class' => 'form-control']) !!}
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-6 col-xs-6">
+								<div class="form-group">
+									{!! Form::label('scale', '路演规模') !!}
+									{!! Form::text('scale','', ['placeholder' => '路演规模','class' => 'form-control']) !!}
+								</div>
+							</div>
+							<div class="col-lg-6 col-xs-6">
+								<div class="form-group">
+									{!! Form::label('guest', '路演嘉宾') !!}
+									{!! Form::text('guest','', ['placeholder' => '路演嘉宾','class' => 'form-control']) !!}
+								</div>
+							</div>
+						</div>
 						<div class="row">
 							<div class="col-lg-12 col-xs-12">
 								<p style='width:auto; padding-left:0; float:left;'>
@@ -72,7 +117,6 @@
 						</div>
 					</div>
 					<div class="modal-footer">
-
 						<button type="submit" class="btn btn-primary btn-flat">提交</button>
 					</div>
 					{!! Form::close() !!}

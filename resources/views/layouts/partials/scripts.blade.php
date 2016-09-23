@@ -14,6 +14,8 @@
 <script src="{{ asset('/js/plugins/plugins.js') }}" type="text/javascript"></script>
 <!-- sweetalert -->
 <script src="{{ asset('/js/plugins/sweetalert.min.js') }}" type="text/javascript"></script>
+<!-- Select2 -->
+<script src="{{ asset('/plugins/select2/select2.full.min.js') }}"></script>
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
       Both of these plugins are recommended to enhance the

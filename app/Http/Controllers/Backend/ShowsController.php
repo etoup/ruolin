@@ -37,6 +37,9 @@ class ShowsController extends Controller
     //新增路演
     public function add()
     {
+        //获取项目
+        $projects=$this->shows->getProject();
+        //获取分类
         $info = $this->shows->getCate();
         $infoArr = [];
         if(count($info)){
@@ -44,13 +47,11 @@ class ShowsController extends Controller
                 $infoArr[$v->id] = $v->title;
             }
         }
-
-       /* echo "<pre/>";
-      print_r($this->shows->getCate());exit;*/
-       return view('backend.show.add')->withInfo($infoArr);;
+       return view('backend.show.add')->withData($projects)->withInfo($infoArr);
     }
 
     public function addOk(Requests\ShowsAddRequest $request){
+
         $this->shows->created($request->all());
             return redirect()->route('backend.shows')->withFlashSuccess('添加成功');
     }
@@ -58,7 +59,7 @@ class ShowsController extends Controller
     //路演修改
     public function edit($id){
         $infoAll = $this->shows->getCate();
-
+        $projects=$this->shows->getProject();
         $infoArr = [];
         if(count($infoAll)){
             foreach ($infoAll as $v){
@@ -67,11 +68,12 @@ class ShowsController extends Controller
         }
         /*echo "<pre/>";
         print_r($infoArr);exit;*/
-        return view('backend.show.edit')->withCate($infoArr)->withInfo($this->shows->findOrThrowException($id));
+        return view('backend.show.edit')->withCate($infoArr)->withData($projects)->withInfo($this->shows->findOrThrowException($id));
     }
 
     //修改路演成功
     public function editOk(Requests\ShowsEditRequest $request){
+        
 /*        dd($request);exit;*/
         $this->shows->edit($request->all());
         return redirect()->route('backend.shows')->withFlashSuccess('修改成功');

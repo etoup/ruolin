@@ -18,13 +18,14 @@ Auth::routes();
 
 Route::group(['namespace'=>'Backend','prefix'=>'backend','middleware'=>'auth'],function(){
     Route::get('/', 'BackendController@index')->name('backend');
+
     Route::get('/users', 'UsersController@index')->name('backend.users');
     Route::post('/users/search', 'UsersController@search')->name('backend.users.search');
     Route::get('/users/review', 'UsersController@index')->name('backend.users.review');
     Route::get('/users/edit/{id}', 'UsersController@edit')->name('backend.users.edit');
     Route::post('/users/store', 'UsersController@store')->name('backend.users.store');
     Route::delete('/users/destroy/{id}', 'UsersController@destroy')->name('backend.users.destroy');
-
+    
     Route::get('/shows', 'ShowsController@index')->name('backend.shows');
     Route::get('/shows/add', 'ShowsController@add')->name('backend.shows.add');
     Route::post('/shows/addCate', 'ShowsController@addCate')->name('backend.shows.addCate');
@@ -39,7 +40,15 @@ Route::group(['namespace'=>'Backend','prefix'=>'backend','middleware'=>'auth'],f
     Route::delete('/shows/del/{id}', 'ShowsController@del')->name('backend.shows.del');
     Route::get('/shows/review/{id}', 'ShowsController@review')->name('backend.shows.review');
 
+
     Route::get('/projects', 'ProjectsController@index')->name('backend.projects');
+    Route::get('/projects/create','ProjectsController@create')->name('backend.projects.create');
+    Route::post('/projects/created','ProjectsController@created')->name('backend.projects.created');
+    Route::get('/projects/edit/{id}','ProjectsController@edit')->name('backend.projects.edit');
+    Route::delete('/projects/destroy/{id}','ProjectsController@destroy')->name('backend.projects.destroy');
+    Route::post('/projects/store','ProjectsController@store')->name('backend.projects.store');
+    Route::post('/projects/search','ProjectsController@search')->name('backend.projects.search');
+
     Route::get('/regions', 'RegionsController@index')->name('backend.regions');
     Route::get('/regions/create', 'RegionsController@create')->name('backend.regions.create');
     Route::post('/regions/created', 'RegionsController@created')->name('backend.regions.created');

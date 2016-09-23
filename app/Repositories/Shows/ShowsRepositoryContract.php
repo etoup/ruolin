@@ -32,4 +32,6 @@ interface ShowsRepositoryContract
     public function editCate($input);
     //定义删除路演分类方法
     public function delCate($id);
+    //定义获取项目
+    public function getProject();
 }

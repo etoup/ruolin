@@ -12,13 +12,6 @@
 
 
 @section('main-content')
-	@if(!$regions->count())
-	<div class="alert alert-warning alert-dismissible">
-		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-		<h4><i class="icon fa fa-warning"></i> 提示</h4>
-		还没有添加地区信息，请添加
-	</div>
-	@endif
 	<div class="box">
 		<div class="box-header with-border">
 			<h3 class="box-title">搜索</h3>
@@ -34,34 +27,34 @@
 				<div class="col-lg-3 col-xs-3">
 					<div class="form-group">
 						{!! Form::label('name', '姓名') !!}
-						{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => '填写姓名关键字']) !!}
+						{!! Form::text('name', request('name', $default = null), ['class' => 'form-control', 'placeholder' => '填写姓名关键字']) !!}
 					</div>
 				</div>
 				<div class="col-lg-3 col-xs-3">
 					<div class="form-group">
 						{!! Form::label('ways', '联系方式') !!}
-						{!! Form::text('ways', null, ['class' => 'form-control', 'placeholder' => '填写联系方式']) !!}
+						{!! Form::text('ways', request('ways', $default = null), ['class' => 'form-control', 'placeholder' => '填写联系方式']) !!}
 					</div>
 				</div>
 				<div class="col-lg-3 col-xs-3">
 					<div class="form-group">
 						{!! Form::label('business_name', '企业名称') !!}
-						{!! Form::text('business_name', null, ['class' => 'form-control', 'placeholder' => '填写企业名称关键字']) !!}
+						{!! Form::text('business_name', request('business_name', $default = null), ['class' => 'form-control', 'placeholder' => '填写企业名称关键字']) !!}
 					</div>
 				</div>
 				<div class="col-lg-3 col-xs-3">
 					<div class="form-group">
 						{!! Form::label('brand_name', '品牌名称') !!}
-						{!! Form::text('brand_name', null, ['class' => 'form-control', 'placeholder' => '填写品牌名称关键字']) !!}
+						{!! Form::text('brand_name', request('brand_name', $default = null), ['class' => 'form-control', 'placeholder' => '填写品牌名称关键字']) !!}
 					</div>
 				</div>
 			</div>
 		</div>
 		<!-- /.box-body -->
 		<div class="box-footer">
-			<button type="reset" class="btn btn-sm btn-success pull-right" style="margin-left: 5px;">
-				<i class="fa fa-download"></i> 重置
-			</button>
+			<a href="{{ route('backend.projects') }}" class="btn btn-sm btn-warning pull-left">
+				<i class="fa fa-mail-reply-all"></i> 取消搜索
+			</a>
 			<button type="submit" class="btn btn-sm btn-primary pull-right" style="margin-left: 5px;">
 				<i class="fa fa-search"></i> 搜索
 			</button>
